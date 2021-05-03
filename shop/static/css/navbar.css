@@ -19,12 +19,12 @@
     font-size: 18px;
     margin-left: 7px;
     margin-right: 7px;
-    padding-top: 25px;
+    padding-top: 29px;
     font-family: "Roboto", sans-serif;
 }
 
 .menu__items:hover {
-    border-bottom: red solid 4px;
+    border-bottom: rgb(150, 147, 147) solid 4px;
 }
 
 .profile__text {
@@ -55,4 +55,36 @@
 .bag__text:hover {
     cursor: pointer;
     font-weight: 650;
+}
+
+.gradient__hr {
+    display: block;
+    border: none;
+    color: rgb(107, 99, 99);
+    height: 2px;
+    background: rgb(73, 71, 71);
+    background: -webkit-gradient( radial, 50% 50%, 0, 50% 50%, 800, from(rgb(150, 147, 147)), to(#fff));
+    margin-top: 30px;
+}
+
+.header__search {
+    width: 800px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    height: 40px;
+    color: grey;
+    background-color: #eef3f8;
+    border: grey solid 0.1px;
+}
+
+.header__search>input {
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.search__input {
+    width: 100%;
 }
