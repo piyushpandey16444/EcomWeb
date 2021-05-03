@@ -21,6 +21,7 @@
     margin-right: 7px;
     padding-top: 29px;
     font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
 }
 
 .menu__items:hover {
