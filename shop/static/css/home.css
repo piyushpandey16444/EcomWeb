@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(235, 233, 233);
+}
+
 .ad__section {
     width: 97%;
     height: 220px;
@@ -11,4 +15,34 @@
     width: 99%;
     height: 440px;
     margin-top: 15px;
+}
+
+.cateogry {
+    width: 95%;
+    height: 100vh;
+    margin-top: 15px;
+}
+
+.category__header {
+    font-size: 1.8rem;
+    letter-spacing: 0.15rem;
+    max-height: 5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    overflow: hidden;
+    width: 100%;
+}
+
+.category__items {
+    margin-top: 15px;
+    width: 95%;
+    height: 28rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cateogry__image {
+    width: 14rem;
+    height: 25rem;
+    margin: 22px;
 }
