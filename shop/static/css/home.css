@@ -19,7 +19,7 @@ body {
 
 .cateogry {
     width: 95%;
-    height: 100vh;
+    height: auto;
     margin-top: 15px;
 }
 
@@ -45,4 +45,12 @@ body {
     width: 14rem;
     height: 25rem;
     margin: 22px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.cateogry__image:hover {
+    box-shadow: 5px 8px 11px 0px rgba(114, 114, 114, 0.98);
+    -webkit-box-shadow: 5px 8px 11px 0px rgba(114, 114, 114, 0.98);
+    -moz-box-shadow: 5px 8px 11px 0px rgba(114, 114, 114, 0.98);
 }
