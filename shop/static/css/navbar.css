@@ -82,7 +82,7 @@
     height: 40px;
     color: grey;
     background-color: #ececec;
-    border: grey solid 0.1px;
+    border: none;
 }
 
 .header__search>input {
