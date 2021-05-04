@@ -54,3 +54,48 @@ body {
     -webkit-box-shadow: 5px 8px 11px 0px rgba(114, 114, 114, 0.98);
     -moz-box-shadow: 5px 8px 11px 0px rgba(114, 114, 114, 0.98);
 }
+
+.footer {
+    height: 4rem;
+    width: 100%;
+    background-color: black;
+    color: blanchedalmond;
+    align-items: center;
+}
+
+.footer__icon {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer_text {
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.backToTopBtn {
+    height: 3rem;
+    width: 100%;
+    background-color: rgb(103, 107, 110);
+    align-items: center;
+    color: blanchedalmond;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.backToTopBtn:hover {
+    cursor: pointer;
+}
+
+.footer_link {
+    text-decoration: none;
+    color: blanchedalmond;
+}
+
+.footer_link:hover {
+    color: blanchedalmond;
+    text-decoration: none;
+}
