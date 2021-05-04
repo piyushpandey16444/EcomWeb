@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: rgb(235, 233, 233);
 }
@@ -88,6 +92,11 @@ body {
 
 .backToTopBtn:hover {
     cursor: pointer;
+    background-color: rgb(59, 85, 104);
+    font-weight: 700;
+    font-size: 20px;
+    color: whitesmoke;
+    text-decoration: none;
 }
 
 .footer_link {
@@ -98,4 +107,29 @@ body {
 .footer_link:hover {
     color: blanchedalmond;
     text-decoration: none;
+}
+
+.testimonials {
+    width: 100%;
+    height: 20rem;
+    background-color: rgb(59, 85, 104);
+}
+
+.testimonail__inner {
+    width: auto;
+    height: auto;
+    color: white;
+}
+
+.testmonial__heading {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.testimonial__text {
+    color: rgb(216, 216, 216);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5px;
+    line-height: 1.5rem;
 }

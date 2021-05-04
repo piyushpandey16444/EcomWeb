@@ -1,75 +1,135 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <!--Owl Carousel CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--Owl Carousel CSS-->
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
     <!--FontAwesome CSS-->
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <title>WebShop | {% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body>
+    {% include 'shop/navbar.html' %} {% block content %} {% endblock content %}
 
-</head>
-<body>
-
-    {% include 'shop/navbar.html' %}
-
-    {% block content %}
-
-    {% endblock content %}
-
-    <hr class="gradient__hr">
+    <hr class="gradient__hr" />
 
     <!-- back to top btn -->
-    <a class="backToTopBtn m-0 p-0 d-flex justify-content-center text-decoration-none">
-        Back to top
+    <a href="#">
+      <span class="backToTopBtn m-0 p-0 d-flex justify-content-center"
+        >Back to top</span
+      >
     </a>
     <!-- back to top btn ends here-->
 
     <!-- footer -->
-
     <div class="footer p-0 m-0 d-flex justify-content-around">
-        <div class="footer_text">
-            <i class="fas fa-shipping-fast footer__icon"></i>
-            <a href="" class="footer_link">Shipping & Handling</a>
-        </div>
-        <div class="footer_text">
-            <i class="fas fa-sticky-note footer__icon"></i>
-            <a href="" class="footer_link">Privacy Policy</a>
-        </div>
-        <div class="footer_text">
-            <i class="fas fa-exclamation-triangle footer__icon"></i>
-            <a href="" class="footer_link">Terms & Conditions</a>
-        </div>
-        <div class="footer_text">
-            <i class="far fa-question-circle footer__icon"></i>
-            <a href="" class="footer_link">FAQs</a>
-        </div>
-
+      <div class="footer_text">
+        <i class="fas fa-shipping-fast footer__icon"></i>
+        <a href="" class="footer_link">Shipping & Handling</a>
+      </div>
+      <div class="footer_text">
+        <i class="fas fa-sticky-note footer__icon"></i>
+        <a href="" class="footer_link">Privacy Policy</a>
+      </div>
+      <div class="footer_text">
+        <i class="fas fa-exclamation-triangle footer__icon"></i>
+        <a href="" class="footer_link">Terms & Conditions</a>
+      </div>
+      <div class="footer_text">
+        <i class="far fa-question-circle footer__icon"></i>
+        <a href="" class="footer_link">FAQs</a>
+      </div>
     </div>
     <!-- footer ends here-->
 
-    <br>
-    <br>
-    <br>
-    <br>
+    <!-- testimonails -->
+    <div class="testimonials m-0 p-0 d-flex flex-row justify-content-around">
+      <div
+        class="testimonail__inner border border-success m-5 d-flex flex-column"
+      >
+        <div class="testmonial__heading">Get to Know Us</div>
+        <div class="testimonial__text d-flex flex-column">
+          <a href="#"><span class="testimonial__text">About Us</span></a>
+          <a href="#"><span class="testimonial__text">Careers</span></a>
+          <a href="#"><span class="testimonial__text">In the news</span></a>
+          <a href="#"><span class="testimonial__text">WebShop Cares</span></a>
+          <a href="#"><span class="testimonial__text">Gift a smile</span></a>
+        </div>
+      </div>
 
+      <div
+        class="testimonail__inner border border-success m-5 d-flex flex-column"
+      >
+        <div class="testmonial__heading">Connect with Us</div>
+        <div class="testimonial__text d-flex flex-column">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+
+      <div
+        class="testimonail__inner border border-success m-5 d-flex flex-column"
+      >
+        <div class="testmonial__heading">Make Money with Us</div>
+        <div class="testimonial__text">
+          <a href="#">About Us</a>
+        </div>
+      </div>
+
+      <div
+        class="testimonail__inner border border-success m-5 d-flex flex-column"
+      >
+        <div class="testmonial__heading">Let Us Help You</div>
+        <div class="testimonial__text">
+          <a href="#">About Us</a>
+        </div>
+      </div>
+    </div>
+    <!-- testimonails ends here-->
+    <br />
+    <br />
+    <br />
+    <br />
 
     <!-- Optional JavaScript -->
-    
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+    ></script>
     <!-- product js file -->
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/all.min.js' %}"></script>
-</body>
+  </body>
 </html>
