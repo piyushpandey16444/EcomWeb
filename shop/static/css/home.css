@@ -116,7 +116,7 @@ body {
 }
 
 .testimonail__inner {
-    width: auto;
+    width: 12rem;
     height: auto;
     color: white;
 }
@@ -132,4 +132,9 @@ body {
     font-weight: 600;
     margin-top: 5px;
     line-height: 1.5rem;
+}
+
+.testimonial__text:hover {
+    columns: white;
+    font-weight: 700;
 }
