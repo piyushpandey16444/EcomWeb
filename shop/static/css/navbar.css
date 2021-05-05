@@ -40,7 +40,32 @@
 
 .profile__text:hover {
     cursor: pointer;
-    font-weight: 650;
+}
+
+.dropdown {
+    text-align: center;
+}
+
+.button,
+.dropdown-menu {
+    margin: 10px auto;
+}
+
+.dropdown-menu {
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: 20px;
+}
+
+.outer__toggle {
+    margin: 15px;
+}
+
+.welcome__text {
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 15px;
 }
 
 .wishlist__text {

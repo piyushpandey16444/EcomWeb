@@ -30,12 +30,27 @@
 
     <div class="controller d-flex">
 
-        <div class="profile d-flex flex-column m-2 mx-auto">
+        <div class="profile d-flex flex-column m-2 mx-auto ">
             <div class="profile__icon mx-auto">
                 <i class="fas fa-user"></i>
             </div>
-            <div class="profile__text">
-                Profile
+            <div class="profile__text dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile</a>
+                  
+                  <div class="dropdown-menu">
+
+                      <div class="outer__toggle border border-danger">
+                        <div class="d-flex flex-column">
+                          <span class="d-flex justify-content-center">Welcome</span>
+                          <span class="welcome__text">To access account and manage orders</span>
+                          <button>Login</button>
+                        </div>
+                        <a href="#" class="dropdown-item">Action</a>
+                        <a href="#" class="dropdown-item">Another action</a>
+                      </div>
+                      
+                  </div>
+
             </div>
         </div>
 
