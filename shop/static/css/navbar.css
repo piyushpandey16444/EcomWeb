@@ -58,14 +58,47 @@
     margin-top: 20px;
 }
 
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
 .outer__toggle {
     margin: 15px;
+}
+
+.welcome {
+    margin: 0px;
+    font-size: 21px;
+    padding: 0px;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .welcome__text {
     font-size: 14px;
     font-weight: 400;
     margin-left: 15px;
+    margin-top: 7px;
+    margin-bottom: 12px;
+}
+
+.profile__login {
+    border: gray solid 1px;
+    width: 45%;
+    margin-left: 15px;
+    background-color: lightgray;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.profile__login:hover {
+    border: black solid 1px;
+    background-color: whitesmoke;
 }
 
 .wishlist__text {
@@ -96,6 +129,16 @@
     background: rgb(73, 71, 71);
     background: -webkit-gradient( radial, 50% 50%, 0, 50% 50%, 800, from(rgb(150, 147, 147)), to(#fff));
     margin-top: 30px;
+}
+
+.gradient_hr {
+    display: block;
+    border: none;
+    color: rgb(107, 99, 99);
+    height: 2px;
+    background: rgb(73, 71, 71);
+    background: -webkit-gradient( radial, 50% 50%, 0, 50% 50%, 140, from(rgb(150, 147, 147)), to(#fff));
+    margin-top: 12px;
 }
 
 .header__search {
