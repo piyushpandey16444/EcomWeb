@@ -15,5 +15,12 @@
     "editor.defaultFormatter": null
   },
   "python.formatting.blackArgs": ["--line-length", "120"],
-  "python.formatting.provider": "autopep8"
+  "python.formatting.provider": "autopep8",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "batisteo.vscode-django"
+  },
+  "emmet.includeLanguages": { "django-html": "html" }
 }
