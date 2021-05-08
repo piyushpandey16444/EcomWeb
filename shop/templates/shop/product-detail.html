@@ -1,11 +1,19 @@
 {% extends 'shop/base.html' %}
+{% load static %}
 
 {% block title %} Product {% endblock title %}
 
 {% block content %}
 
     <br>
-    <h4>Product Page</h4>
+    <div class="container">
+        <img class="product-img m-0 p-0" src="{% static 'images/1.jpg' %}" alt="">
+        <img class="thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
+        <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+        <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+        <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+    </div>
+
 
 {% endblock content %}
 
