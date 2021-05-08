@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".thumbnail").hover(function(e) {
+    $(".thumbnail").click(function(e) {
         e.preventDefault();
         const self = this;
         $(".active").removeClass("active");
