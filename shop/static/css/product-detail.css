@@ -16,10 +16,6 @@
     border: black 2px solid;
 }
 
-.thumbnail:hover {
-    opacity: 1;
-}
-
 .active {
     opacity: 1;
 }
