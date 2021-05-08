@@ -39,6 +39,12 @@ body {
     position: relative;
 }
 
+.card:hover {
+    box-shadow: 8px 8px 11px -1px rgba(71, 71, 71, 0.75);
+    -webkit-box-shadow: 8px 8px 11px -1px rgba(71, 71, 71, 0.75);
+    -moz-box-shadow: 8px 8px 11px -1px rgba(71, 71, 71, 0.75);
+}
+
 .footer {
     height: 4rem;
     width: 100%;
