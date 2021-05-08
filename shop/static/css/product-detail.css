@@ -19,3 +19,39 @@
 .active {
     opacity: 1;
 }
+
+.slider__wrapper {
+    width: 100px;
+    max-height: 424px;
+    margin-right: 13px;
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+    position: relative;
+}
+
+.slider {
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    margin: 0px;
+    height: 424px;
+    display: flex;
+    flex-direction: column;
+}
+
+.upper__arrow {
+    position: absolute;
+    top: -18px;
+    left: 33px;
+    z-index: 1;
+}
+
+.lower__arrow {
+    position: absolute;
+    top: 415px;
+    left: 33px;
+    z-index: 1;
+}

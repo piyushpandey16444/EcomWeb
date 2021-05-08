@@ -6,18 +6,31 @@
 {% block content %}
 
     <br>
-    <div class="container">
+    <div class="container d-flex flex-row">
+
+        <!-- thumbnail img-->
+        <div class="slider__wrapper no-gutters">
+
+            <span class="upper__arrow"><i class="far fa-2x fa-arrow-alt-circle-up"></i></span>
+
+            <div class="slider">
+                <img class="thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
+                <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+                <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+            </div>
+
+            <span class="lower__arrow"><i class="far fa-2x fa-arrow-alt-circle-down"></i></span>
+        </div>
+
         <!-- main img-->
         <img class="product-img m-0 p-0" src="{% static 'images/1.jpg' %}" alt="">
 
-        <!-- thumbnail img-->
-        <img class="thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
-        <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-        <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-        <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
-        <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-        <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-        <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+        
+
     </div>
 
 
