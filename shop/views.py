@@ -36,7 +36,7 @@ def product_detail_view(request):
 def signup_view(request):
     form = UserAdminCreationForm()
     if request.method == "GET":
-        return render(request, 'store/signup.html', {'form': form})
+        return render(request, 'shop/signup.html', {'form': form})
 
     elif request.method == 'POST':
         """
@@ -62,7 +62,7 @@ def signup_view(request):
 
             email_body = f"Hi {form.instance.email}, \nPlease use this link to verify your account.\n {activate_url}"
             email_subject = "Activate your account."
-            from_email = "mp_reply@botmail.com"
+            from_email = "no_reply@botmail.com"
             to_email = [form.instance.email]
             email = EmailMessage(
                 email_subject,
@@ -100,7 +100,7 @@ def default_to_non_active(instance, created, **kwargs):
 def login_view(request):
     form = AuthenticateForm()
     if request.method == "GET":
-        return render(request, 'store/login.html', {'form': form})
+        return render(request, 'shop/login.html', {'form': form})
 
     elif request.method == "POST":
         email = request.POST.get('username')
