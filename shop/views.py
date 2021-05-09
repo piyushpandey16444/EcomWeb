@@ -1,4 +1,28 @@
-from django.shortcuts import render
+import threading
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMessage
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.http import JsonResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from .forms import UserAdminCreationForm, AuthenticateForm
+from .models import CustomUser
+from .utils import token_generator
+
+
+class EmailThread(threading.Thread):
+
+    def __init__(self, email):
+        self.email = email
+        threading.Thread.__init__(self)
+
+    def run(self):
+        self.email.send(fail_silently=False)
 
 
 def home_view(request):
@@ -7,3 +31,119 @@ def home_view(request):
 
 def product_detail_view(request):
     return render(request, 'shop/product-detail.html')
+
+
+def signup_view(request):
+    form = UserAdminCreationForm()
+    if request.method == "GET":
+        return render(request, 'store/signup.html', {'form': form})
+
+    elif request.method == 'POST':
+        """
+        takes data from user, validate it and send an activation mail if everything is fine.
+        else returns the error to the user.
+        """
+        form = UserAdminCreationForm(request.POST)
+        password1 = form.data['password1']
+        password2 = form.data['password2']
+        email = form.data['email']
+        if not email or not password1 or not password2:
+            messages.error(request, 'Please provide all the fields.')
+            return redirect('signup')
+        if form.is_valid():
+            form.save()
+            uid64 = urlsafe_base64_encode(force_bytes(form.instance.pk))
+            domain = get_current_site(request).domain
+            link = reverse('activate', kwargs={
+                "uid64": uid64,
+                "token": token_generator.make_token(form.instance),
+            })
+            activate_url = f'http://{domain}{link}'
+
+            email_body = f"Hi {form.instance.email}, \nPlease use this link to verify your account.\n {activate_url}"
+            email_subject = "Activate your account."
+            from_email = "mp_reply@botmail.com"
+            to_email = [form.instance.email]
+            email = EmailMessage(
+                email_subject,
+                email_body,
+                from_email,
+                to_email,
+            )
+            EmailThread(email).start()
+            messages.success(
+                request, 'Account is created, please verify your email.')
+            return redirect('/signup/')
+        else:
+            for msg in form.errors.as_data():
+                if msg == 'password2' and password1 == password2:
+                    messages.error(
+                        request, f"Selected password is not strong enough")
+                elif msg == 'password2' and password1 != password2:
+                    messages.error(request,
+                                   f"Password and Confirmation Password do not match")
+                if msg == 'email':
+                    messages.error(
+                        request, f"Declared email: {email} is not valid")
+            return redirect('signup')
+
+
+@receiver(post_save, sender=CustomUser)
+def default_to_non_active(instance, created, **kwargs):
+    if created:
+        instance.is_active = False
+        instance.save()
+    elif kwargs:
+        pass
+
+
+def login_view(request):
+    form = AuthenticateForm()
+    if request.method == "GET":
+        return render(request, 'store/login.html', {'form': form})
+
+    elif request.method == "POST":
+        email = request.POST.get('username')
+        password = request.POST.get('password')
+        if email and password:
+            user = authenticate(username=email, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/')
+                messages.success(
+                    request, 'Account is not active, please check your email.')
+                return redirect('login')
+            messages.error(
+                request, 'Invalid credentials or account is not active, please check your email.')
+            return redirect('login')
+        messages.success(request, 'Please provide both the fields.')
+        return redirect('login')
+
+
+def verification_view(request, uid64, token):
+    """
+    code for verification of token and activation of user based on token.
+    """
+    try:
+        required_id = force_text(urlsafe_base64_decode(uid64))
+        user = CustomUser.objects.get(id=required_id)
+
+        if not token_generator.check_token(user, token):
+            return redirect('login' + '?message=' + 'User already activated')
+        if user.is_active:
+            return redirect('login')
+        user.is_active = True
+        user.save()
+        messages.success(request, 'Account activated successfully.')
+        return redirect('login')
+
+    except Exception as E:
+        print("Exception: ", E)
+    return HttpResponseRedirect('/login/')
+
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'You have been successfully logged out.')
+    return redirect('login')
