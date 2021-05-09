@@ -1,7 +1,6 @@
 $(document).ready(() => {
     const showPassword1Toggle = $(".icon-one");
     const showPassword2Toggle = $(".icon-two");
-    const getPassword1Field = $(".ap_password1");
 
     showPassword1Toggle.click((e) => handleShow1Toggle());
     showPassword2Toggle.click((e) => handleShow2Toggle());
