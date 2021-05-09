@@ -5,15 +5,22 @@
 
 {% block content %}
     
-    <br>
-    <div class="container d-flex flex-row">
+    <!-- breadcrumb div -->
+    <div class="container my-4 border border-info">
+        <ol class="breadcrumb border border-danger">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Category</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Name</li>
+        </ol>
+    </div>
+    <!-- breadcrumb div ends here-->
+
+
+    <div class="container d-flex flex-row border border-danger">
 
         <!-- thumbnail img-->
         <div class="slider__wrapper no-gutters">
 
-            <span class="upper__arrow"><i class="far fa-2x fa-arrow-alt-circle-up"></i></span>
-
-            <div class="slider">
+            <div class="slider no-gutters">
                 <img class="thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
                 <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
                 <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
@@ -23,7 +30,6 @@
                 <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
             </div>
 
-            <span class="lower__arrow"><i class="far fa-2x fa-arrow-alt-circle-down"></i></span>
         </div>
 
         <!-- main img-->
