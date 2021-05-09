@@ -8,19 +8,24 @@ body {
     background-color: rgb(235, 233, 233);
 }
 
-.ad__section {
-    width: 97%;
-    height: 220px;
-}
-
-.ad__image {
+.corousel__section {
     width: 100%;
+    object-fit: cover;
 }
 
-.banner {
-    width: 99%;
-    height: 440px;
-    margin-top: 15px;
+.shop__btn {
+    margin-bottom: 160px;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.carousel-indicators li {
+    width: 33px !important;
+    height: 4px !important;
+}
+
+.image {
+    max-height: 700px !important;
 }
 
 .collection {
