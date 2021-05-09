@@ -25,7 +25,26 @@
 }
 
 .breadcrumb {
-    background-color: white !important;
+    background-color: rgb(235, 233, 233) !important;
+    padding: 0px;
+    margin: 0px;
+    width: 100% !important;
+}
+
+.breadcrumb-item {
+    font-size: 14px !important;
+    font-weight: 400;
+    font-style: inherit !important;
+    color: gray;
+}
+
+.breadcrumb-item:hover {
+    color: black !important;
+    font-weight: 600;
+}
+
+.url__bd {
+    text-decoration: none !important;
 }
 
 .active {

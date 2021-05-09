@@ -6,16 +6,16 @@
 {% block content %}
     
     <!-- breadcrumb div -->
-    <div class="container my-4 border border-info">
-        <ol class="breadcrumb border border-danger">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Category</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Name</li>
+    <div class="container my-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="url__bd"><span class="breadcrumb-item">Category</span></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span class="breadcrumb-item">Name</span></a></li></li>
         </ol>
     </div>
     <!-- breadcrumb div ends here-->
 
 
-    <div class="container d-flex flex-row border border-danger">
+    <div class="container d-flex flex-row">
 
         <!-- thumbnail img-->
         <div class="slider__wrapper no-gutters">
