@@ -1,0 +1,94 @@
+{% load static %}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'store/css/signup.css' %}">
+<link rel="stylesheet" href="{% static 'store/css/login.css' %}">
+
+<title>EShop | Login </title>
+<div class="d-flex flex-column mx-auto">
+    <div class="card-title mx-auto m-3 pl-2 pr-2 pt-1 bg-danger rounded text-white">
+        <h4 style="font-size: 16px;">Welcome To EShop</h4>
+    </div>
+
+    <div class="card mx-auto" style="width: 25rem;">
+        <div class="card-body">
+            <h3 class="card-title">Create Account</h3>
+
+
+            {% if messages %}
+            <div class="message alert alert-custom mb-4">
+                {% for msg in messages %}
+                <p class="message__content p-0">{{msg}}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="POST" action="#" novalidate>
+                {% csrf_token %}
+                <label class="ap_email_label p-0 m-0" style="font-size: 14px;">Email</label>
+                {{form.username}}
+
+                <label class="ap_password1_label" style="font-size: 14px;">Password</label>
+                <span class="show_password"><i class="fas fa-eye icon-one"></i></span>
+                {{form.password}}
+
+                <p class="alert__content">
+                    By continuing, you agree to Eshop's <a href="#">Conditions of Use</a> and <a href="#">Privacy
+                    Notice</a>.
+                </p>
+
+                <input type="submit" id="continue" tabindex="3" class="a-button-input" value="Continue">
+
+            </form>
+
+            <hr class="gradient__card mx-auto">
+
+            <div class="info__div">
+                <div class="signup__text">New to Eshop?
+                    <a href="{% url 'signup' %}" class="singup__link">Sign Up</a>
+                </div>
+
+                <div class="reset_pwd mt-2">
+                    <a class="help_text" data-toggle="collapse" href="#pwd_reset" role="button" aria-expanded="false"
+                       aria-controls="pwd_reset">
+                        Need help?
+                    </a>
+                </div>
+
+                <div class="collapse" id="pwd_reset">
+                    <a class="help_link" href="#">Forgot Password</a><br>
+                    <a class="help_link" href="#">Other issues with Sign-In</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr class="gradient__hr mx-auto">
+
+<div class="footer__div_login p-0 m-0 d-flex">
+    <div class="footer__link d-flex mx-auto">
+        <a href="#" class="condition__link mx-auto">Condition of use</a>
+        <a href="#" class="privacy__link mx-auto">Privacy Note</a>
+        <a href="#" class="help__link mx-auto">Help</a>
+    </div>
+</div>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"></script>
+<!-- product js file -->
+<script src="{% static 'store/js/product.js' %}"></script>
+<script src="{% static 'store/js/signup.js' %}"></script>
