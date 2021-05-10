@@ -90,7 +90,7 @@ def signup_view(request):
 
 @receiver(post_save, sender=CustomUser)
 def default_to_non_active(instance, created, **kwargs):
-    if created and (not created.is_superuser and not created.is_staff):
+    if created and (not instance.is_superuser and not instance.is_staff):
         instance.is_active = False
         instance.save()
 
