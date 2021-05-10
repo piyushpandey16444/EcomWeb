@@ -1,69 +1,44 @@
-.product-img {
-    object-fit: cover;
-    cursor: pointer;
-    border: 2px solid black;
-    width: 500px;
-    height: 700px;
-    max-width: 500px;
-    max-height: 700px;
-}
-
-.thumbnail {
-    object-fit: cover;
-    max-width: 180px;
-    max-height: 100px;
-    cursor: pointer;
-    opacity: 0.5;
-    margin: 5px;
-    border: black 2px solid;
-}
-
-.hover__on {
-    border: solid 3px brown;
-}
-
-.breadcrumb-item+.breadcrumb-item::before {
-    content: ">";
-}
-
-.breadcrumb {
-    background-color: rgb(235, 233, 233) !important;
-    padding: 0px;
-    margin: 0px;
-    width: 100% !important;
-}
-
-.breadcrumb-item {
-    font-size: 14px !important;
-    font-weight: 400;
-    font-style: inherit !important;
-    color: gray;
-}
-
-.breadcrumb-item:hover {
-    color: black !important;
-    font-weight: 600;
-}
-
-.url__bd {
-    text-decoration: none !important;
-}
-
-.active {
-    opacity: 1;
-}
-
-.slider__wrapper {
-    width: 100px;
-    margin-right: 13px;
-}
-
-.slider {
-    width: 100%;
-    padding: 0px;
-    display: flex;
-    margin: 0px;
-    display: flex;
-    flex-direction: column;
-    margin-top: -6px;
-}
+    .thumbnail {
+        object-fit: cover;
+        max-width: 180px;
+        max-height: 100px;
+        cursor: pointer;
+        opacity: 0.5;
+        margin: 5px;
+        border: black 2px solid;
+    }
+    
+    .hover__on {
+        border: solid 3px brown;
+    }
+    
+    .breadcrumb-item+.breadcrumb-item::before {
+        content: ">";
+    }
+    
+    .breadcrumb {
+        background-color: rgb(235, 233, 233) !important;
+        padding: 0px;
+        margin: 0px;
+        width: 100% !important;
+    }
+    
+    .breadcrumb-item {
+        font-size: 14px !important;
+        font-weight: 400;
+        font-style: inherit !important;
+        color: gray;
+    }
+    
+    .breadcrumb-item:hover {
+        color: black !important;
+        font-weight: 600;
+    }
+    
+    .url__bd {
+        text-decoration: none !important;
+    }
+    
+    .active {
+        opacity: 1;
+    }

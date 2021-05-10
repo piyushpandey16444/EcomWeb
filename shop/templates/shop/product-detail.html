@@ -14,30 +14,56 @@
     </div>
     <!-- breadcrumb div ends here-->
 
+    {% comment %} <div class="col-md-5">
+        <!-- image container-->
+        <div class="container d-flex flex-row">
+        
+            <!-- thumbnail img-->
+            <div class="slider__wrapper">
+        
+                <div class="slider">
+                    <img class="thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
+                    <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                    <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                    <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+                    <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                    <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                    <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+                </div>
 
-    <div class="container d-flex flex-row">
+                <!-- main img-->
+                <img class="product-img m-0 p-0" src="{% static 'images/1.jpg' %}" alt="">  
+        
+            </div>
+        
+        </div>
+        <!-- image container ends here-->
+    </div>
 
-        <!-- thumbnail img-->
-        <div class="slider__wrapper no-gutters">
+    <div class="col-md-5">
+        <!-- product details container-->
+        <div class="container border border-danger">
+            xyz
+        </div>
+        <!-- product details container ends here-->
+    </div> {% endcomment %}
 
-            <div class="slider no-gutters">
-                <img class="thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
-                <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-                <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-                <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
-                <img class="thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-                <img class="thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-                <img class="thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+
+    <div class="container border border-danger no-gutters mx-auto">
+        <!-- one row and two columns -->
+        <div class="row justify-content-between no-gutters border border-dark">
+
+            <div class="col-md-5 border border-info no-gutters">
+                sxy
+            </div>
+
+            <div class="col-md-6 border border-success no-gutters">
+                sxy
             </div>
 
         </div>
-
-        <!-- main img-->
-        <img class="product-img m-0 p-0" src="{% static 'images/1.jpg' %}" alt="">
-
-        
-
     </div>
+  
 
 
 {% endblock content %}

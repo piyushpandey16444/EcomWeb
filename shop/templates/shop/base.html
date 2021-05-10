@@ -32,18 +32,18 @@
   <body>
     {% include 'shop/navbar.html' %} {% block content %} {% endblock content %}
 
-    <hr class="gradient__hr" />
+    {% comment %} <hr class="gradient__hr" /> {% endcomment %}
 
     <!-- back to top btn -->
-    <a href="#">
+    {% comment %} <a href="#">
       <span class="backToTopBtn m-0 p-0 d-flex justify-content-center"
         >Back to top</span
       >
-    </a>
+    </a> {% endcomment %}
     <!-- back to top btn ends here-->
 
     <!-- footer -->
-    <div class="footer p-0 m-0 d-flex justify-content-around">
+    {% comment %} <div class="footer p-0 m-0 d-flex justify-content-around">
       <div class="footer_text">
         <i class="fas fa-shipping-fast footer__icon"></i>
         <a href="" class="footer_link">Shipping & Handling</a>
@@ -60,11 +60,11 @@
         <i class="far fa-question-circle footer__icon"></i>
         <a href="" class="footer_link">FAQs</a>
       </div>
-    </div>
+    </div> {% endcomment %}
     <!-- footer ends here-->
 
     <!-- testimonails -->
-    <div class="testimonials m-0 p-0 d-flex flex-row justify-content-around">
+    {% comment %} <div class="testimonials m-0 p-0 d-flex flex-row justify-content-around">
       <div class="testimonail__inner m-5 d-flex flex-column">
         <div class="testmonial__heading">Get to Know Us</div>
         <div class="testimonial__text d-flex flex-column">
@@ -99,7 +99,7 @@
           <a href="#"><span class="testimonial__text">Help</span></a>
         </div>
       </div>
-    </div>
+    </div> {% endcomment %}
     <!-- testimonails ends here-->
 
     <!-- Optional JavaScript -->
