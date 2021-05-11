@@ -153,7 +153,7 @@
     justify-content: center;
 }
 
-.small {
+.available__size {
     height: 30px;
     width: 30px;
     /* background-color: rgb(49, 47, 47); */
@@ -167,8 +167,16 @@
     font-size: 19px;
 }
 
-.small:hover {
+.available__size:hover {
     background-color: gray;
     border: 1px solid black;
     color: whitesmoke;
+    transition: 0.1s;
+}
+
+.selected__size {
+    background-color: gray;
+    border: 1px solid black;
+    color: whitesmoke;
+    transition: 0.1s;
 }

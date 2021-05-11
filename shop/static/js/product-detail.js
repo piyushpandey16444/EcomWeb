@@ -9,6 +9,7 @@ $(document).ready(function() {
         $(".product__img").attr("src", $(self).attr("src"));
     });
 
+    // scroll btns
     const upperBtn = $(".upper__arrow");
     const lowerBtn = $(".lower__arrow");
     const sliderComponent = $(".slider");
@@ -24,6 +25,13 @@ $(document).ready(function() {
         const currentPosition = $(sliderComponent).scrollTop();
         $(sliderComponent).scrollTop(currentPosition - 200);
     });
-});
 
-scroll;
+    // size btn selection
+    const getAllSize = $(".available__size");
+
+    getAllSize.click(function(e) {
+        e.preventDefault();
+        $(".selected__size").removeClass("selected__size");
+        $(this).addClass("selected__size");
+    });
+});
