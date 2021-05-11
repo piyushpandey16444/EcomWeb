@@ -53,4 +53,27 @@ $(document).ready(function() {
             self.addClass("selected__color");
         }
     });
+
+    // product add to cart
+    const addToCartBtnClick = $(".cart__btn");
+    addToCartBtnClick.click(function(e) {
+        // e.preventDefault();
+        const getSelectedSize = $(".selected__size").attr("value");
+        const getSelectedColor = $(".selected__color").attr("value");
+
+        const dataToSend = {
+            size: getSelectedSize,
+            color: getSelectedColor,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/add-to-cart/",
+            data: JSON.stringify(dataToSend),
+            dataType: "json",
+            success: function(response) {
+                console.log("response is: ", response);
+            },
+        });
+    });
 });

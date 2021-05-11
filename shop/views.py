@@ -1,4 +1,5 @@
 import threading
+import json
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.sites.shortcuts import get_current_site
@@ -13,6 +14,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .forms import UserAdminCreationForm, AuthenticateForm
 from .models import CustomUser
 from .utils import token_generator
+from django.views.decorators.csrf import csrf_exempt
 
 
 class EmailThread(threading.Thread):
@@ -145,3 +147,17 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'You have been successfully logged out.')
     return redirect('login')
+
+
+def cart_view(request):
+    return JsonResponse({
+        "response": "This is cart view !"
+    })
+
+
+@csrf_exempt
+def add_to_cart(request):
+    if request.method == "POST" and request.is_ajax():
+        json_data = request.body
+        py_dict = json.loads(json_data.decode())
+    return JsonResponse({"response": "Item Added to cart !"})
