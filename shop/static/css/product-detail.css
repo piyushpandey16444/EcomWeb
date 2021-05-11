@@ -52,11 +52,16 @@
     height: auto;
     max-width: 150px;
     position: relative;
+    scroll-behavior: smooth;
+    transition: 0.2s;
 }
 
 .slider {
     height: 400px !important;
     overflow: hidden;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    transition: 0.2s;
 }
 
 .upper__arrow {
@@ -67,10 +72,18 @@
     cursor: pointer;
 }
 
+.upper__arrow :hover {
+    opacity: 0.5;
+}
+
 .lower__arrow {
     position: absolute;
     top: 451px;
     left: 57.5px;
     z-index: 10;
     cursor: pointer;
+}
+
+.lower__arrow:hover {
+    opacity: 0.5;
 }

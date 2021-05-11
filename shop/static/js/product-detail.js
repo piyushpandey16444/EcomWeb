@@ -8,4 +8,22 @@ $(document).ready(function() {
         $(self).addClass("hover__on");
         $(".product__img").attr("src", $(self).attr("src"));
     });
+
+    const upperBtn = $(".upper__arrow");
+    const lowerBtn = $(".lower__arrow");
+    const sliderComponent = $(".slider");
+
+    lowerBtn.click(function(e) {
+        e.preventDefault();
+        var y = $(sliderComponent).scrollTop(); //your current y position on the page
+        $(sliderComponent).scrollTop(y + 200);
+    });
+
+    upperBtn.click(function(e) {
+        e.preventDefault();
+        var y = $(sliderComponent).scrollTop(); //your current y position on the page
+        $(sliderComponent).scrollTop(y - 200);
+    });
 });
+
+scroll;
