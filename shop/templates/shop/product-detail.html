@@ -52,14 +52,25 @@
     <div class="container-fluid border border-danger no-gutters mx-auto">
 
         <!-- one row and three columns -->
-        <div class="row justify-content-between no-gutters border border-dark">
+        <div class="row justify-content-between no-gutters">
 
-            <div class="col-md-1 border border-secondary no-gutters">
-                here
+            <!-- thumbnail images-->
+            <div class="col-md-1 no-gutters">
+                <div class="slider__wrapper w-100 no-gutters">
+                    <div class="slider py-2">
+                    <img class="my-1 thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
+                    <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                    <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                    <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+                    <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                    <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                    <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+                </div>
+                </div>
             </div>
 
+            <!-- main img-->
             <div class="col-md-4 ml-0 border border-info no-gutters">
-                <!-- main img-->
                 <img class="product__img w-100" src="{% static 'images/1.jpg' %}" alt="">
             </div>
 
