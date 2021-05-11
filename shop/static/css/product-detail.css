@@ -51,9 +51,26 @@
 .slider__wrapper {
     height: auto;
     max-width: 150px;
+    position: relative;
 }
 
 .slider {
     height: 400px !important;
     overflow: hidden;
+}
+
+.upper__arrow {
+    position: absolute;
+    top: 20px;
+    left: 57.5px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.lower__arrow {
+    position: absolute;
+    top: 451px;
+    left: 57.5px;
+    z-index: 10;
+    cursor: pointer;
 }
