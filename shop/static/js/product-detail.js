@@ -31,7 +31,16 @@ $(document).ready(function() {
 
     getAllSize.click(function(e) {
         e.preventDefault();
-        $(".selected__size").removeClass("selected__size");
-        $(this).addClass("selected__size");
+        const self = $(this);
+        if (self.hasClass("selected__size")) {
+            self.removeClass("selected__size");
+        } else {
+            $(".selected__size").removeClass("selected__size");
+            self.addClass("selected__size");
+        }
     });
+
+    // select color btn
+    const selectedColor = $(".selected__color");
+
 });

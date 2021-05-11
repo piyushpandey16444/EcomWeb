@@ -156,7 +156,6 @@
 .available__size {
     height: 30px;
     width: 30px;
-    /* background-color: rgb(49, 47, 47); */
     border-radius: 12px;
     font-weight: 600;
     color: black;
@@ -179,4 +178,56 @@
     border: 1px solid black;
     color: whitesmoke;
     transition: 0.1s;
+}
+
+
+/*custom check boxes*/
+
+.available__color1 {
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.available__color2 {
+    height: 25px;
+    width: 25px;
+    background-color: green;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.available__color3 {
+    height: 25px;
+    width: 25px;
+    background-color: greenyellow;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.available__color4 {
+    height: 25px;
+    width: 25px;
+    background-color: blueviolet;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.selected__color {
+    border: 4px solid black;
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0px;
 }
