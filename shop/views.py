@@ -160,4 +160,5 @@ def add_to_cart(request):
     if request.method == "POST" and request.is_ajax():
         json_data = request.body
         py_dict = json.loads(json_data.decode())
+        print("data: ", py_dict)
     return JsonResponse({"response": "Item Added to cart !"})
