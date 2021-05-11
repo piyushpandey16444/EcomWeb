@@ -41,6 +41,16 @@ $(document).ready(function() {
     });
 
     // select color btn
-    const selectedColor = $(".selected__color");
+    const selectedColor = $(".color");
 
+    selectedColor.click(function(e) {
+        e.preventDefault();
+        const self = $(this);
+        if (self.hasClass("selected__color")) {
+            self.removeClass("selected__color");
+        } else {
+            $(".selected__color").removeClass("selected__color");
+            self.addClass("selected__color");
+        }
+    });
 });
