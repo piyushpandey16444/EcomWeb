@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
 .thumbnail {
     object-fit: cover;
     max-width: 180px;
@@ -48,6 +50,12 @@
     max-height: 500px;
 }
 
+.product__img:hover {
+    -webkit-box-shadow: 9px 12px 16px -7px rgba(64, 64, 64, 1);
+    -moz-box-shadow: 9px 12px 16px -7px rgba(64, 64, 64, 1);
+    box-shadow: 9px 12px 16px -7px rgba(64, 64, 64, 1);
+}
+
 .slider__wrapper {
     height: auto;
     max-width: 150px;
@@ -86,4 +94,48 @@
 
 .lower__arrow:hover {
     opacity: 0.5;
+}
+
+.product__name {
+    font-size: 20px;
+    height: auto;
+    font-family: "Roboto Mono", monospace;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.gradient__hrr {
+    display: block;
+    border: none;
+    color: rgb(107, 99, 99);
+    height: 2px;
+    background: rgb(73, 71, 71);
+    background: -webkit-gradient( radial, 50% 50%, 0, 50% 50%, 420, from(rgb(150, 147, 147)), to(#fff));
+}
+
+.instruction__text {
+    font-size: 18px;
+    font-weight: 500;
+    height: auto;
+    width: 100%;
+    align-items: center;
+    cursor: pointer;
+}
+
+.instruction__icon {
+    margin-left: 410px;
+}
+
+.collapse__text {
+    text-decoration: none;
+}
+
+.collapse__text ul li {
+    list-style-type: none;
+    margin-left: 10px;
+    text-overflow: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0px;
+    font-family: "Roboto Mono", monospace;
 }

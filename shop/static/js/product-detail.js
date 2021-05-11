@@ -15,14 +15,14 @@ $(document).ready(function() {
 
     lowerBtn.click(function(e) {
         e.preventDefault();
-        var y = $(sliderComponent).scrollTop(); //your current y position on the page
-        $(sliderComponent).scrollTop(y + 200);
+        const currentPosition = $(sliderComponent).scrollTop();
+        $(sliderComponent).scrollTop(currentPosition + 200);
     });
 
     upperBtn.click(function(e) {
         e.preventDefault();
-        var y = $(sliderComponent).scrollTop(); //your current y position on the page
-        $(sliderComponent).scrollTop(y - 200);
+        const currentPosition = $(sliderComponent).scrollTop();
+        $(sliderComponent).scrollTop(currentPosition - 200);
     });
 });
 

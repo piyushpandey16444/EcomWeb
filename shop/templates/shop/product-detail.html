@@ -49,7 +49,7 @@
     </div> {% endcomment %}
 
 
-    <div class="container-fluid border border-danger no-gutters mx-auto">
+    <div class="container-fluid no-gutters mx-auto">
 
         <!-- one row and three columns -->
         <div class="row justify-content-between no-gutters">
@@ -72,12 +72,51 @@
             <i class="lower__arrow far fa-2x fa-arrow-alt-circle-down"></i>
 
             <!-- main img-->
-            <div class="col-md-4 ml-0 border border-info no-gutters">
+            <div class="col-md-4 ml-0 no-gutters">
                 <img class="product__img w-100" src="{% static 'images/1.jpg' %}" alt="">
             </div>
 
+            <!--product details container-->
             <div class="col-md-6 border border-success no-gutters">
-                sxy
+
+                <div class="product__wrapper w-100 border border-warning">
+                    <div class="product__name w-100 text-center mt-2">
+                        Product Name Will come here 
+                    </div>
+                    <hr class="gradient__hrr my-2">
+
+                    <div class="product__price row w-100 my-3 no-gutters">
+                        <div class="col-md-6 instruction__text">
+                            Price :<span class="ml-4 text-primary">₹ 900.00</span>
+                        </div>
+
+                        <div class="col-md-6 instruction__text">
+                            Expected delivery within : 10 Days
+                        </div>
+                    </div>
+
+                    <hr class="gradient__hrr my-2">
+                    
+                    <div>
+                        <div class="instruction__text no-gutters" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Care Instructions
+                            <i class="fas fa-plus instruction__icon"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        <div class="collapse__text">
+                            <ul>
+                                <li>Dry Clean Only.</li>
+                                <li>Dry with sun light, No sunlight.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr class="gradient__hrr my-2">
+
+
+                </div>
             </div>
 
         </div>
