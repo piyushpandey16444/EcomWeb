@@ -1,31 +1,31 @@
 {
-  "python.pythonPath": "C:\\Users\\HP\\.virtualenvs\\TweetMe2-VDbE-ier\\Scripts\\python.exe",
-  "python.autoComplete.extraPaths": [
-    "C:\\Users\\HP\\.virtualenvs\\TweetMe2-VDbE-ier\\Scripts\\python.exe"
-  ],
-  "editor.formatOnPaste": true,
+    "python.pythonPath": "C:\\Users\\HP\\.virtualenvs\\TweetMe2-VDbE-ier\\Scripts\\python.exe",
+    "python.autoComplete.extraPaths": [
+        "C:\\Users\\HP\\.virtualenvs\\TweetMe2-VDbE-ier\\Scripts\\python.exe"
+    ],
+    "editor.formatOnPaste": true,
 
-  "python.linting.enabled": true,
-  "python.linting.lintOnSave": true,
-  "python.linting.pylintEnabled": true,
-  "python.linting.pylamaArgs": ["--load-plugin=pylint_django"],
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylamaArgs": ["--load-plugin=pylint_django"],
 
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[python]": {
-    "editor.defaultFormatter": null
-  },
-  "python.formatting.blackArgs": ["--line-length", "120"],
-  "python.formatting.provider": "autopep8",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "batisteo.vscode-django"
-  },
-  "emmet.includeLanguages": {
-    "django-html": "html"
-  },
-  "python.analysis.extraPaths": [
-    "C:\\Users\\HP\\.virtualenvs\\TweetMe2-VDbE-ier\\Scripts\\python.exe"
-  ]
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[python]": {
+        "editor.defaultFormatter": null
+    },
+    "python.formatting.blackArgs": ["--line-length", "120"],
+    "python.formatting.provider": "autopep8",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "batisteo.vscode-django"
+    },
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "python.analysis.extraPaths": [
+        "C:\\Users\\HP\\.virtualenvs\\TweetMe2-VDbE-ier\\Scripts\\python.exe"
+    ]
 }

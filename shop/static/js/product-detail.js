@@ -28,29 +28,35 @@ $(document).ready(function() {
 
     // size btn selection
     const getAllSize = $(".available__size");
+    const cartBtnValue = $(".cart__btn");
 
     getAllSize.click(function(e) {
         e.preventDefault();
         const self = $(this);
         if (self.hasClass("selected__size")) {
             self.removeClass("selected__size");
+            cartBtnValue.attr("data-size", "");
         } else {
             $(".selected__size").removeClass("selected__size");
             self.addClass("selected__size");
+            cartBtnValue.attr("data-size", $(self).attr("value"));
         }
     });
 
     // select color btn
     const selectedColor = $(".color");
+    const cartBtn = $(".cart__btn");
 
     selectedColor.click(function(e) {
         e.preventDefault();
         const self = $(this);
         if (self.hasClass("selected__color")) {
             self.removeClass("selected__color");
+            cartBtn.attr("data-size", "");
         } else {
             $(".selected__color").removeClass("selected__color");
             self.addClass("selected__color");
+            cartBtn.attr("data-size", $(self).attr("value"));
         }
     });
 
@@ -60,6 +66,11 @@ $(document).ready(function() {
         e.preventDefault();
         const getSelectedSize = $(".selected__size").attr("value");
         const getSelectedColor = $(".selected__color").attr("value");
+
+        const size = this.dataset.size;
+        const price = this.dataset.price;
+        const color = this.dataset.color;
+        console.log(size, price, color);
 
         const dataToSend = {
             size: getSelectedSize,

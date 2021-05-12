@@ -113,7 +113,10 @@
                             
                         </div>
                     </div>
-                    <a href="{% url 'cart' %}" class="cart__btn btn btn-primary btn-sm">Add to Cart</a>
+                    {% comment %} <a href="{% url 'cart' %}" class="cart__btn btn btn-primary btn-sm">Add to Cart</a> {% endcomment %}
+                    <form action="" method="post">
+                        <button type="submit" data-price="900.00" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
+                    </form>
 
                 </div>
             </div>
