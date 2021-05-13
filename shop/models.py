@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+from django.db.models.fields import BooleanField
 from django.utils.translation import ugettext_lazy as _
 from datetime import datetime
 from colorfield.fields import ColorField
@@ -49,12 +50,13 @@ class CustomUser(AbstractUser):
 
 class Size(models.Model):
     size = models.CharField(max_length=20, unique=True)
-    create_date = models.DateTimeField(default=datetime.now(), blank=True)
-    edit_date = models.DateTimeField(auto_now=True, blank=True)
+    create_date = models.DateTimeField(auto_now_add=True)
+    write_date = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
         CustomUser, on_delete=models.PROTECT, editable=False, null=True, blank=True)
     changed_by = models.ForeignKey(CustomUser, on_delete=models.PROTECT, related_name="size_changed_by", editable=False,
                                    null=True, blank=True)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.size)
@@ -75,12 +77,13 @@ class Color(models.Model):
     color = ColorField(default='#FF0000', unique=True)
     parent_color = models.ForeignKey(
         'self', on_delete=models.PROTECT, null=True, blank=True, related_name='pcolor')
-    create_date = models.DateTimeField(default=datetime.now(), blank=True)
-    edit_date = models.DateTimeField(auto_now=True, blank=True)
+    create_date = models.DateTimeField(auto_now_add=True)
+    write_date = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
         CustomUser, on_delete=models.PROTECT, editable=False, null=True, blank=True)
     changed_by = models.ForeignKey(CustomUser, on_delete=models.PROTECT, related_name="color_changed_by", editable=False,
                                    null=True, blank=True)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.color
@@ -118,12 +121,13 @@ class Product(models.Model):
     productimage = models.ImageField(upload_to="images/product/")
     expected_delivery_date = models.IntegerField(
         verbose_name="Expected Delivery Days", blank=True, null=True)
-    create_date = models.DateTimeField(default=datetime.now(), blank=True)
-    edit_date = models.DateTimeField(auto_now=True, blank=True)
+    create_date = models.DateTimeField(auto_now_add=True)
+    write_date = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
         CustomUser, on_delete=models.PROTECT, editable=False, null=True, blank=True)
     changed_by = models.ForeignKey(CustomUser, on_delete=models.PROTECT, related_name="age_changed_by", editable=False,
                                    null=True, blank=True)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.product_name

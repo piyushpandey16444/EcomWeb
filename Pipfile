@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 django-colorfield = "*"
+django-tabbed-changeform-admin = "*"
+pillow = "*"
 
 [dev-packages]
 
