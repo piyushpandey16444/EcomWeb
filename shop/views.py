@@ -161,4 +161,9 @@ def add_to_cart(request):
         json_data = request.body
         py_dict = json.loads(json_data.decode())
         print("data: ", py_dict)
-    return JsonResponse({"response": "Item Added to cart !"})
+        return JsonResponse({"response": "Item Added to cart !"})
+    elif request.method == "POST":
+        json_data = request.body
+        dt = request.POST
+        # py_dict = json.loads(json_data.decode())
+        print("data: ", json_data, dt)
