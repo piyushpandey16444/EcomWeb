@@ -36,12 +36,10 @@ $(document).ready(function() {
         if (self.hasClass("selected__size")) {
             self.removeClass("selected__size");
             cartBtnValue.attr("data-size", "");
-            $("#size__field").attr("value", "");
         } else {
             $(".selected__size").removeClass("selected__size");
             self.addClass("selected__size");
             cartBtnValue.attr("data-size", $(self).attr("value"));
-            $("#size__field").attr("value", $(self).attr("value"));
         }
     });
 
@@ -64,31 +62,31 @@ $(document).ready(function() {
 
     // product add to cart
     const addToCartBtnClick = $(".cart__btn");
-    // addToCartBtnClick.click(function(e) {
-    //     e.preventDefault();
+    addToCartBtnClick.click(function(e) {
+        e.preventDefault();
 
-    //     const getSelectedSize = this.dataset.size;
-    //     const productprice = this.dataset.price;
-    //     const getSelectedColor = this.dataset.color;
+        const getSelectedSize = this.dataset.size;
+        const productprice = this.dataset.price;
+        const getSelectedColor = this.dataset.color;
 
-    //     const dataToSend = {
-    //         size: getSelectedSize,
-    //         color: getSelectedColor,
-    //         price: productprice,
-    //     };
+        const dataToSend = {
+            size: getSelectedSize,
+            color: getSelectedColor,
+            price: productprice,
+        };
 
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/add-to-cart/",
-    //         data: JSON.stringify(dataToSend),
-    //         dataType: "json",
-    //         success: function(response) {
-    //             console.log("response is: ", response.response);
-    //             output = "";
-    //             const divToReplace = $(".to_replace");
-    //             output += response.response;
-    //             divToReplace.html(output);
-    //         },
-    //     });
-    // });
+        $.ajax({
+            type: "POST",
+            url: "/add-to-cart/",
+            data: JSON.stringify(dataToSend),
+            dataType: "json",
+            success: function(response) {
+                console.log("response is: ", response.response);
+                output = "";
+                const divToReplace = $(".to_replace");
+                output += response.response;
+                divToReplace.html(output);
+            },
+        });
+    });
 });
