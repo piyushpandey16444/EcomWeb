@@ -115,6 +115,9 @@
                     </div>
                     <form action="/add-to-cart/" method="post">
                         {% csrf_token %}
+                        <input type="hidden" value="" id="size__field">
+                        <input type="hidden" value="" id="color__field">
+                        <input type="hidden" value="" id="price__field">
                         <button type="submit" data-price="900.00" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
                     </form>
                 </div>

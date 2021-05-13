@@ -36,10 +36,12 @@ $(document).ready(function() {
         if (self.hasClass("selected__size")) {
             self.removeClass("selected__size");
             cartBtnValue.attr("data-size", "");
+            $("#size__field").attr("value", "");
         } else {
             $(".selected__size").removeClass("selected__size");
             self.addClass("selected__size");
             cartBtnValue.attr("data-size", $(self).attr("value"));
+            $("#size__field").attr("value", $(self).attr("value"));
         }
     });
 
