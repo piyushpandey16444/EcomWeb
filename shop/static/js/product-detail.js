@@ -52,11 +52,11 @@ $(document).ready(function() {
         const self = $(this);
         if (self.hasClass("selected__color")) {
             self.removeClass("selected__color");
-            cartBtn.attr("data-size", "");
+            cartBtn.attr("data-color", "");
         } else {
             $(".selected__color").removeClass("selected__color");
             self.addClass("selected__color");
-            cartBtn.attr("data-size", $(self).attr("value"));
+            cartBtn.attr("data-color", $(self).attr("value"));
         }
     });
 
