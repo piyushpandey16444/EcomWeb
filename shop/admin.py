@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 from .models import Product, Color, Size
-from django.utils.html import format_html
+from django.utils.html import format_html, mark_safe
 from django.shortcuts import redirect
 from django_tabbed_changeform_admin.admin import DjangoTabbedChangeformAdmin
 
@@ -43,7 +43,7 @@ class CustomUserAdmin(UserAdmin):
 
 class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
     list_display = (
-        'id', 'product_name', 'slug', 'size_ids', 'price')
+        'id', 'product_name', 'slug', 'price', 'discount_price', 'active')
     list_display_links = ('id', 'product_name')
     list_filter = ['price', 'active']
     filter_horizontal = ('size_ids', 'color_ids', 'relative_product_ids')
@@ -72,7 +72,7 @@ class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
         return res
 
     def image_thumbnail(self, obj):
-        from django.utils.html import mark_safe
+
         return mark_safe('<img src="{url}" width="75px" height="auto" style="border:1px solid #cccccc;" />'.format(
             url=obj.productimage.url,
         )
