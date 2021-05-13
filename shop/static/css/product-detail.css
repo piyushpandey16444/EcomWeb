@@ -220,4 +220,58 @@
     .website__view {
         display: none;
     }
+    .main__img {
+        height: auto;
+        border: 2px solid black;
+    }
+    .thumbnail__img {
+        height: auto;
+    }
+    .thumbnail {
+        object-fit: cover;
+        max-width: 180px;
+        max-height: 100px;
+        cursor: pointer;
+        opacity: 0.5;
+        border: black 2px solid;
+    }
+    .active {
+        opacity: 1;
+    }
+    .hover__on {
+        border: solid 3px brown;
+    }
+    .product__name {
+        font-size: 20px;
+        height: auto;
+        font-family: "Roboto Mono", monospace;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .gradient__line {
+        display: block;
+        border: none;
+        color: rgb(107, 99, 99);
+        height: 2px;
+        background: rgb(73, 71, 71);
+        background: -webkit-gradient( radial, 50% 50%, 0, 50% 50%, 230, from(rgb(150, 147, 147)), to(#fff));
+    }
+    .price__text {
+        font-size: 14px;
+        font-weight: 500;
+        height: auto;
+        width: 100%;
+        align-items: center;
+    }
+    .instruction__text {
+        font-size: 14px;
+        font-weight: 500;
+        height: auto;
+        width: 100%;
+        align-items: center;
+        cursor: pointer;
+    }
+    .instruction__icon {
+        margin-left: 410px;
+    }
 }

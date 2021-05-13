@@ -15,12 +15,117 @@
     <!-- breadcrumb div ends here-->
 
     <!-- mobile-view  -->
-    <div class="mobile__view container border border-info">
-        <div class="row no-gutters w-100 mobile__img border border-danger">
-            <div class="col border border-success w-100 d-flex flex-row mx-auto">
-                xyz
+    <div class="mobile__view container">
+        
+        <!-- main img-->
+        <div class="row my-2 w-100 main__img d-flex flex-column mx-auto">
+            <img class="product__img w-100" src="{% static 'images/1.jpg' %}" alt="">
+        </div>
+
+        <!--thumbnail div-->
+        <div class="row thumbnail__img w-100 no-gutters border border-danger">
+            <div class="row my-2 w-100 no-gutters">
+
+                <div class="col-3 w-100">
+                    <img class="my-1 thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
+                </div>
+                <div class="col-3">
+                    <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                </div>
+                <div class="col-3">
+                    <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                </div>
+                <div class="col-3">
+                    <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+                </div>
+                <div class="col-3">
+                    <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                </div>
+                <div class="col-3">
+                    <img class="my-1 thumbnail" src="{% static 'images/6.jpg' %}" alt="">
+                </div>
+                <div class="col-3">
+                    <img class="my-1 thumbnail" src="{% static 'images/1.jpg' %}" alt="">
+                </div>
             </div>
         </div>
+
+        <!-- product detail div -->
+        <div class="row no-gutters border border-info my-2">
+
+                <div class="product__wrapper w-100">
+                    <div class="product__name w-100 text-center mt-2">
+                        Product Name
+                    </div>
+                    <hr class="gradient__line my-2">
+
+                    <div class="product__price row w-100 my-3 no-gutters">
+                        <div class="price__text">
+                            Price :<span class="ml-4 text-primary">₹ 900.00</span>
+                        </div>
+
+                        <div class="col-md-6 price__text">
+                            Expected within : 10 Days
+                        </div>
+                    </div>
+
+                    <hr class="gradient__line my-3">
+                    
+                    <div>
+                        <div class="instruction__text no-gutters" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Care Instructions
+                            <i class="fas fa-plus "></i>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        <div class="collapse__text">
+                            <ul>
+                                <li>Dry Clean Only.</li>
+                                <li>Dry with sun light, No sunlight.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr class="gradient__line my-3">
+
+                    <div class="row">
+                        <div class="col-md-4 price__text no-gutters">
+                            Size
+                        </div>
+                        <div class="col-md-8 size__div price__text no-gutters">
+                            <div class="available__size" value="S">S</div>
+                            <div class="available__size" value="M">M</div>
+                            <div class="available__size" value="L">L</div>
+                            <div class="available__size" value="XL">XL</div>
+                        </div>
+                    </div>
+
+                    <hr class="gradient__line my-3">
+
+                    <div class="row">
+                        <div class="col-md-4 price__text no-gutters">
+                            Color
+                        </div>
+
+                        <div class="col-md-6 size__div d-flex flex-row mx-auto">
+                            <div class="available__color1 color" value="red"></div>
+                            <div class="available__color2 color" value="green"></div>
+                            <div class="available__color3 color" value="greenyellow"></div>
+                            <div class="available__color4 color" value="blueviolet"></div>
+                        </div>
+                    </div>
+
+                    <hr class="gradient__line my-3">
+
+                    <div class="replace">
+                        <div class="to_replace w-100 no-gutters">
+                            
+                        </div>
+                    </div>
+                    <button type="submit" data-price="900.00" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        <!-- product detail div ends here -->
     </div>
     <!-- mobile-view ends here -->
     
@@ -32,17 +137,17 @@
 
             <i class="upper__arrow far fa-2x fa-arrow-alt-circle-up"></i>
             <!-- thumbnail images-->
-            <div class="col-md-1 no-gutters d-flex align-items-center">
+            <div class="col-md-1 ">
                 <div class="slider__wrapper w-100 no-gutters">
                     <div class="slider my-2 d-flex mx-auto flex-column">
-                    <img class="my-1 thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
-                    <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-                    <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-                    <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
-                    <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-                    <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-                    <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
-                </div>
+                        <img class="my-1 thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
+                        <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                        <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                        <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+                        <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+                        <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+                        <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
+                    </div>
                 </div>
             </div>
             <i class="lower__arrow far fa-2x fa-arrow-alt-circle-down"></i>
