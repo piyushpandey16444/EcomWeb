@@ -1,10 +1,9 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
-from django.db.models.fields import BooleanField
 from django.utils.translation import ugettext_lazy as _
 from datetime import datetime
 from colorfield.fields import ColorField
-from django.utils.html import format_html
+from django.utils.html import format_html, mark_safe
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -135,6 +134,52 @@ class CareInstructions(models.Model):
 
     class Meta:
         verbose_name_plural = "care instructions"
+
+
+class UserCart(models.Model):
+    user_id = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
+    product_id = models.ForeignKey("shop.Product", on_delete=models.CASCADE)
+    size_id = models.ForeignKey(
+        Size, on_delete=models.PROTECT, null=True, blank=True)
+    color_id = models.ForeignKey(Color, verbose_name="Color of Product", on_delete=models.PROTECT, null=True,
+                                 blank=True)
+    product_color = ColorField()
+    quantity = models.IntegerField(
+        'Quantity', default=1,  blank=True, null=True)
+    total_price = models.FloatField("Total Price", blank=True, null=True)
+    create_date = models.DateTimeField(auto_now_add=True)
+    write_date = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(CustomUser, on_delete=models.PROTECT,  related_name="cart_created_by",
+                                   editable=False, null=True, blank=True)
+    changed_by = models.ForeignKey(CustomUser, on_delete=models.PROTECT, related_name="cart_changed_by", editable=False,
+                                   null=True, blank=True)
+    active = models.BooleanField(default=True)
+
+    def save(self, *args, **kwargs):
+        super(UserCart, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.product_id.product_name
+
+    def total_product_price(self, qty, price):
+        return qty * round(price, 2)
+
+    def color(self):
+        if self.color_id:
+            return mark_safe('<div style="width:15px; height:15px; background:%s;"></div>' % (self.color_id))
+        else:
+            return 'No'
+
+    def image(self):
+        from django.utils.html import mark_safe
+        if self.product_id.productimage:
+            return mark_safe('<img src="%s" width="50px" height="auto" style="border:1px solid #cccccc;"/>' % (
+                self.product_id.productimage.url))
+        else:
+            return 'No Image Found'
+
+    class Meta:
+        verbose_name_plural = "Customer Cart"
 
 
 class Product(models.Model):

@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
-from .models import Product, Color, Size, CareInstructions
+from .models import Product, Color, Size, CareInstructions, UserCart
 from django.utils.html import format_html, mark_safe
 from django.shortcuts import redirect
 from django_tabbed_changeform_admin.admin import DjangoTabbedChangeformAdmin
@@ -68,6 +68,15 @@ class CareInstructionInline(admin.TabularInline):
     extra = 1
 
 
+class UserCartAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user_id', 'product_id', 'image', 'size_id', 'color', 'quantity',
+                    'total_product_price', 'create_date', 'write_date')
+    list_display_links = ('id', 'write_date', 'product_id')
+
+    # def has_add_permission(self, request, obj=None):
+    #     return False
+
+
 class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
     list_display = (
         'id', 'product_name', 'slug', 'price', 'discount_price', 'active')
@@ -119,3 +128,4 @@ admin.site.register(Color, ColorAdmin)
 admin.site.register(Size, SizeAdmin)
 admin.site.register(CareInstructions, CareinstructionsAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(UserCart, UserCartAdmin)

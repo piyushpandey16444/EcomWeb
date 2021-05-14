@@ -12,7 +12,7 @@ from django.urls import reverse
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .forms import UserAdminCreationForm, AuthenticateForm
-from .models import CustomUser, Product, Size, Color
+from .models import CustomUser, Product, UserCart, Size, Color
 from .utils import token_generator
 from django.views.decorators.csrf import csrf_exempt
 
@@ -178,5 +178,19 @@ def add_to_cart(request):
     if request.method == "POST" and request.is_ajax():
         json_data = request.body
         py_dict = json.loads(json_data.decode())
-        print("data: ", py_dict)
-        return JsonResponse({"response": "Item Added to cart !"})
+        product_id = get_object_or_404(Product, id=py_dict.get('product'))
+        size_id = get_object_or_404(Size, size=py_dict.get('size'))
+        color_id = get_object_or_404(Color, color=py_dict.get('color'))
+        cart_obj, created = UserCart.objects.get_or_create(user_id=request.user, product_id=product_id, size_id=size_id,
+                                                           color_id=color_id)
+        quantity = cart_obj.quantity or 1
+        if created:
+            cart_obj.quantity = quantity
+            cart_obj.total_price = cart_obj.total_product_price(
+                qty=quantity, price=product_id.price)
+            cart_obj.save()
+            return JsonResponse({"response": "Item Added to cart !"})
+        else:
+            cart_obj.quantity += quantity
+            cart_obj.save()
+            return JsonResponse({"response": "Item qty incremented !"})
