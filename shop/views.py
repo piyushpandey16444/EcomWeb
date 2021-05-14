@@ -183,14 +183,14 @@ def add_to_cart(request):
         color_id = get_object_or_404(Color, color=py_dict.get('color'))
         cart_obj, created = UserCart.objects.get_or_create(user_id=request.user, product_id=product_id, size_id=size_id,
                                                            color_id=color_id)
-        quantity = cart_obj.quantity or 1
+        quantity = cart_obj.quantity
         if created:
             cart_obj.quantity = quantity
-            cart_obj.total_price = cart_obj.total_product_price(
-                qty=quantity, price=product_id.price)
+            cart_obj.total_price = cart_obj.quantity * format(product_id.price, '.2f')
             cart_obj.save()
             return JsonResponse({"response": "Item Added to cart !"})
         else:
-            cart_obj.quantity += quantity
+            cart_obj.quantity += 1
+            cart_obj.total_price = cart_obj.quantity * format(product_id.price, '.2f')
             cart_obj.save()
             return JsonResponse({"response": "Item qty incremented !"})

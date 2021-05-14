@@ -161,9 +161,6 @@ class UserCart(models.Model):
     def __str__(self):
         return self.product_id.product_name
 
-    def total_product_price(self, qty, price):
-        return qty * round(price, 2)
-
     def color(self):
         if self.color_id:
             return mark_safe('<div style="width:15px; height:15px; background:%s;"></div>' % (self.color_id))

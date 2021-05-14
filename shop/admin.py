@@ -70,11 +70,11 @@ class CareInstructionInline(admin.TabularInline):
 
 class UserCartAdmin(admin.ModelAdmin):
     list_display = ('id', 'user_id', 'product_id', 'image', 'size_id', 'color', 'quantity',
-                    'total_product_price', 'create_date', 'write_date')
+                    'create_date', 'write_date')
     list_display_links = ('id', 'write_date', 'product_id')
 
-    # def has_add_permission(self, request, obj=None):
-    #     return False
+    def has_add_permission(self, request, obj=None):
+        return False
 
 
 class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
