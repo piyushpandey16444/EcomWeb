@@ -7,6 +7,7 @@ name = "pypi"
 django-colorfield = "*"
 django-tabbed-changeform-admin = "*"
 pillow = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 

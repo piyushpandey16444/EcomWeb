@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
-from .models import Product, Color, Size
+from .models import Product, Color, Size, CareInstructions
 from django.utils.html import format_html, mark_safe
 from django.shortcuts import redirect
 from django_tabbed_changeform_admin.admin import DjangoTabbedChangeformAdmin
@@ -13,6 +13,11 @@ class ColorAdmin(admin.ModelAdmin):
     list_display = ('id', 'color_name', 'color_published',
                     'patent_color_published',)
     list_display_links = ('id', 'color_name')
+
+
+class CareInstructionsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'instruction_name', 'cares_details',)
+    list_display_links = ('id', 'instruction_name')
 
 
 class SizeAdmin(admin.ModelAdmin):
@@ -49,7 +54,12 @@ class SizeInline(admin.TabularInline):
 
 class ColorInline(admin.TabularInline):
     model = Product.color_ids.through
-    extra = 2
+    extra = 1
+
+
+class CareInstructionInline(admin.TabularInline):
+    model = Product.instruction_ids.through
+    extra = 1
 
 
 class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
@@ -60,7 +70,7 @@ class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
     prepopulated_fields = {'slug': ('product_name',)}
     ordering = ['-id']
     readonly_fields = ["id", "image_thumbnail", ]
-    inlines = (SizeInline, ColorInline)
+    inlines = (SizeInline, ColorInline, CareInstructionInline)
 
     def changelist_view(self, request, extra_context=None):
         if len(request.GET) == 0:
@@ -101,4 +111,5 @@ class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
 admin.site.register(get_user_model(), CustomUserAdmin)
 admin.site.register(Color, ColorAdmin)
 admin.site.register(Size, SizeAdmin)
+admin.site.register(CareInstructions, CareInstructionsAdmin)
 admin.site.register(Product, ProductAdmin)

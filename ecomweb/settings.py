@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'shop',
     'colorfield',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +150,16 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/images/"
 MEDIA_ROOT = BASE_DIR
 AUTH_USER_MODEL = 'shop.CustomUser'
+
+
+# CKEDITOR CONFIGURATION
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = '/media/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
