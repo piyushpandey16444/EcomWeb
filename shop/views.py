@@ -7,12 +7,12 @@ from django.core.mail import EmailMessage
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.http import JsonResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.urls import reverse
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .forms import UserAdminCreationForm, AuthenticateForm
-from .models import CustomUser
+from .models import CustomUser, Product
 from .utils import token_generator
 from django.views.decorators.csrf import csrf_exempt
 
@@ -29,6 +29,14 @@ class EmailThread(threading.Thread):
 
 def home_view(request):
     return render(request, 'shop/home.html')
+
+
+def product_view(request, slug):
+    products = get_object_or_404(Product, slug=slug)
+    context = {
+        "products": products,
+    }
+    return render(request, 'shop/product-detail.html', context=context)
 
 
 def product_detail_view(request):
