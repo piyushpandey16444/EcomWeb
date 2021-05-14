@@ -155,7 +155,7 @@
 
             <!-- main img-->
             <div class="col-md-4 ml-0 no-gutters">
-                <img class="product__img w-100" src={{product.productimage.url }} alt="{{product.product_name}}">
+                <img class="product__img w-100" src="{{product.productimage.url}}" alt="{{product.product_name}}">
             </div>
 
             <!--product details container-->
@@ -178,24 +178,25 @@
                     </div>
 
                     <hr class="gradient__hrr my-3">
-                    
-                    <div>
-                        <div class="instruction__text no-gutters" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            Care Instructions
-                            <i class="fas fa-plus instruction__icon"></i>
+                    {% if instruction_objs %}
+                        <div>
+                            <div class="instruction__text no-gutters" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                Care Instructions
+                                <i class="fas fa-plus instruction__icon"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="collapse" id="collapseExample">
-                        <div class="collapse__text">
-                            <ul>
-                            {% for care in instruction_objs %}
-                                <li>{{care.cares_details|safe}}</li>
-                            {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
+                        <div class="collapse" id="collapseExample">
+                            <div class="collapse__text">
+                                <ul>
+                                {% for care in instruction_objs %}
+                                    <li>{{care.details|safe}}</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>     
 
-                    <hr class="gradient__hrr my-3">
+                    <hr class="gradient__hrr my-3">               
+                    {% endif %}
 
                     <div class="row">
                         <div class="col-md-4 price__text no-gutters">
@@ -228,7 +229,7 @@
                             
                         </div>
                     </div>
-                    <button type="submit" data-price="{{product.price | floatformat:2 }}" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
+                    <button type="submit" data-product="{{product.id}}" data-price="{{product.price | floatformat:2 }}" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
                 </div>
             </div>
 

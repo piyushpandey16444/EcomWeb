@@ -64,15 +64,16 @@ $(document).ready(function() {
     const addToCartBtnClick = $(".cart__btn");
     addToCartBtnClick.click(function(e) {
         e.preventDefault();
-
         const getSelectedSize = this.dataset.size;
         const productprice = this.dataset.price;
         const getSelectedColor = this.dataset.color;
+        const productId = this.dataset.product;
 
         const dataToSend = {
             size: getSelectedSize,
             color: getSelectedColor,
             price: productprice,
+            product: productId,
         };
 
         $.ajax({

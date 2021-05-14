@@ -111,6 +111,8 @@ class Color(models.Model):
 class CareInstructions(models.Model):
     instruction_name = models.CharField(max_length=255, unique=True)
     cares_details = RichTextUploadingField()
+    details = models.CharField(
+        max_length=250, default="CI")
     create_date = models.DateTimeField(auto_now_add=True)
     write_date = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(

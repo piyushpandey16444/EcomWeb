@@ -71,34 +71,19 @@
 </section>
 
 <!-- category div -->
-<div class="container-fluid mt-4">
-    <div class="row">
-        <div class="col-md-3 py-2 py-sm-2">
-            <div class="card">
-                <a href="{% url 'product-detail' %}"><img class="card-img-top" src="{% static 'images/1.jpg' %}" alt="Card image cap" /></a>
-            </div>
-        </div>
 
-        <div class="col-md-3 py-2 py-sm-2">
-            <div class="card">
-                <a href="{% url 'product-detail' %}"><img class="card-img-top" src="{% static 'images/5.jpg' %}" alt="Card image cap" /></a>
+    <div class="container-fluid mt-4">
+        <div class="row">
+            {% for product in product_objs %}
+            <div class="col-md-3 py-2 py-sm-2">
+                <div class="card">
+                    <a href="{% url 'product' product.slug %}"><img class="card-img-top" src="{{product.productimage.url}}" alt="Card image cap" /></a>
+                </div>
             </div>
-        </div>
-
-        <div class="col-md-3 py-2 py-sm-2">
-            <div class="card">
-                <a href="{% url 'product-detail' %}"><img class="card-img-top" src="{% static 'images/3.jpg' %}" alt="Card image cap" /></a>
-            </div>
-        </div>
-
-        <div class="col-md-3 py-2 py-sm-2">
-            <div class="card">
-                <a href="{% url 'product-detail' %}"><img class="card-img-top" src="{% static 'images/4.jpg' %}" alt="Card image cap" /></a>
-            </div>
-        </div>
-
+            {% endfor %}
+        </div>                          
     </div>
-</div>
+
 
 <section class="collection d-flex mx-auto mt-5 p-0 text-uppercase">
     <div class="section__header m-0 p-0">Latest from WebShop</div>

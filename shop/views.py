@@ -28,7 +28,11 @@ class EmailThread(threading.Thread):
 
 
 def home_view(request):
-    return render(request, 'shop/home.html')
+    product_objs = get_list_or_404(Product)
+    context = {
+        "product_objs": product_objs,
+    }
+    return render(request, 'shop/home.html', context=context)
 
 
 def product_view(request, slug):
@@ -176,8 +180,3 @@ def add_to_cart(request):
         py_dict = json.loads(json_data.decode())
         print("data: ", py_dict)
         return JsonResponse({"response": "Item Added to cart !"})
-    elif request.method == "POST":
-        json_data = request.body
-        dt = request.POST
-        # py_dict = json.loads(json_data.decode())
-        print("data: ", json_data, dt)
