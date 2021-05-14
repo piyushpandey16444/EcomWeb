@@ -15,6 +15,12 @@ class ColorAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'color_name')
 
 
+class CareinstructionsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'instruction_name',
+                    'care_instructions_details', 'active')
+    list_display_links = ('id', 'instruction_name')
+
+
 class CareInstructionsAdmin(admin.ModelAdmin):
     list_display = ('id', 'instruction_name', 'cares_details',)
     list_display_links = ('id', 'instruction_name')
@@ -111,5 +117,5 @@ class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
 admin.site.register(get_user_model(), CustomUserAdmin)
 admin.site.register(Color, ColorAdmin)
 admin.site.register(Size, SizeAdmin)
-admin.site.register(CareInstructions, CareInstructionsAdmin)
+admin.site.register(CareInstructions, CareinstructionsAdmin)
 admin.site.register(Product, ProductAdmin)

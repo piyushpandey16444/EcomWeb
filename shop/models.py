@@ -127,7 +127,7 @@ class CareInstructions(models.Model):
 
     def care_instructions_details(self):
         from django.utils.html import strip_tags
-
+        print('entered')
         if self.cares_details:
             return strip_tags(self.cares_details)
 

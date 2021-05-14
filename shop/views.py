@@ -35,10 +35,12 @@ def product_view(request, slug):
     product = get_object_or_404(Product, slug=slug)  # object
     size_objs = product.size_ids.all()  # many2many related to obj
     color_objs = product.color_ids.all()  # many2many related to obj
+    instruction_objs = product.instruction_ids.all()
     context = {
         "product": product,
         "size_objs": size_objs,
         "color_objs": color_objs,
+        "instruction_objs": instruction_objs,
     }
     return render(request, 'shop/product-detail.html', context=context)
 

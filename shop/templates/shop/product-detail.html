@@ -188,8 +188,9 @@
                     <div class="collapse" id="collapseExample">
                         <div class="collapse__text">
                             <ul>
-                                <li>Dry Clean Only.</li>
-                                <li>Dry with sun light, No sunlight.</li>
+                            {% for care in instruction_objs %}
+                                <li>{{care.cares_details|safe}}</li>
+                            {% endfor %}
                             </ul>
                         </div>
                     </div>
