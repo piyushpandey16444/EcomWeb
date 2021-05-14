@@ -32,9 +32,9 @@ def home_view(request):
 
 
 def product_view(request, slug):
-    products = get_object_or_404(Product, slug=slug)
+    product = get_object_or_404(Product, slug=slug)
     context = {
-        "products": products,
+        "product": product,
     }
     return render(request, 'shop/product-detail.html', context=context)
 

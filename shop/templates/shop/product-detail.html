@@ -1,5 +1,6 @@
 {% extends 'shop/base.html' %}
 {% load static %}
+{% load shop_custom_tags %}
 
 {% block title %} Product {% endblock title %}
 
@@ -135,9 +136,9 @@
         <!-- one row and three columns -->
         <div class="row justify-content-between no-gutters">
 
-            <i class="upper__arrow far fa-2x fa-arrow-alt-circle-up"></i>
+            {% comment %} <i class="upper__arrow far fa-2x fa-arrow-alt-circle-up"></i> {% endcomment %}
             <!-- thumbnail images-->
-            <div class="col-md-1 ">
+            {% comment %} <div class="col-md-1 ">
                 <div class="slider__wrapper w-100 no-gutters">
                     <div class="slider my-2 d-flex mx-auto flex-column">
                         <img class="my-1 thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
@@ -149,26 +150,26 @@
                         <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
                     </div>
                 </div>
-            </div>
-            <i class="lower__arrow far fa-2x fa-arrow-alt-circle-down"></i>
+            </div> {% endcomment %}
+            {% comment %} <i class="lower__arrow far fa-2x fa-arrow-alt-circle-down"></i> {% endcomment %}
 
             <!-- main img-->
             <div class="col-md-4 ml-0 no-gutters">
-                <img class="product__img w-100" src="{% static 'images/1.jpg' %}" alt="">
+                <img class="product__img w-100" src={{product.productimage.url }} alt="{{product.product_name}}">
             </div>
 
             <!--product details container-->
             <div class="col-md-6 no-gutters">
 
-                <div class="product__wrapper w-100">
-                    <div class="product__name w-100 text-center mt-2">
-                        Product Name Will come here 
+                <div class="product__wrapper w-100 ">
+                    <div class="product__name w-100">
+                        {{product.product_name}}
                     </div>
                     <hr class="gradient__hrr my-2">
 
                     <div class="product__price row w-100 my-3 no-gutters">
                         <div class="col-md-6 price__text">
-                            Price :<span class="ml-4 text-primary">₹ 900.00</span>
+                            Price :<span class="ml-4 text-primary">₹ {{product.price | floatformat:2 }}</span>
                         </div>
 
                         <div class="col-md-6 price__text">

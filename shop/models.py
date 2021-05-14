@@ -135,5 +135,10 @@ class Product(models.Model):
     def __repr__(self):
         return self.__str__()
 
+    def save(self, *args, **kwargs):
+        self.price = round(self.price, 2)
+        self.discount_price = round(self.discount_price, 2)
+        super(Product, self).save(*args, **kwargs)
+
     class Meta:
         verbose_name_plural = "product"
