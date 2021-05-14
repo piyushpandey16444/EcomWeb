@@ -1,3 +1,4 @@
+from django.contrib.admin.options import InlineModelAdmin
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin
@@ -41,16 +42,25 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('email',)
 
 
+class SizeInline(admin.TabularInline):
+    model = Product.size_ids.through
+    extra = 1
+
+
+class ColorInline(admin.TabularInline):
+    model = Product.color_ids.through
+    extra = 2
+
+
 class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
     list_display = (
         'id', 'product_name', 'slug', 'price', 'discount_price', 'active')
     list_display_links = ('id', 'product_name')
     list_filter = ['price', 'active']
-    filter_horizontal = ('size_ids', 'color_ids', 'relative_product_ids')
     prepopulated_fields = {'slug': ('product_name',)}
     ordering = ['-id']
-
     readonly_fields = ["id", "image_thumbnail", ]
+    inlines = (SizeInline, ColorInline)
 
     def changelist_view(self, request, extra_context=None):
         if len(request.GET) == 0:
@@ -84,10 +94,7 @@ class ProductAdmin(DjangoTabbedChangeformAdmin, admin.ModelAdmin):
                        "price", "discount_price", "productimage", "image_thumbnail"],
             "classes": ["tab-first"],
         }),
-        (None, {
-            "fields": ["color_ids", "relative_product_ids", "size_ids"],
-            "classes": ["tab-second"],
-        }),
+
     ]
 
 

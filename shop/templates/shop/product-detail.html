@@ -173,7 +173,7 @@
                         </div>
 
                         <div class="col-md-6 price__text">
-                            Expected within : 10 Days
+                            Expected within : {{product.expected_delivery_date}} Days
                         </div>
                     </div>
 
@@ -201,10 +201,9 @@
                             Size
                         </div>
                         <div class="col-md-8 size__div price__text no-gutters">
-                            <div class="available__size" value="S">S</div>
-                            <div class="available__size" value="M">M</div>
-                            <div class="available__size" value="L">L</div>
-                            <div class="available__size" value="XL">XL</div>
+                            {% for size in size_objs %}
+                                <div class="available__size" value="{{size}}">{{size}}</div>
+                            {% endfor %}
                         </div>
                     </div>
 
@@ -214,12 +213,10 @@
                         <div class="col-md-4 price__text no-gutters">
                             Color
                         </div>
-
                         <div class="col-md-6 size__div d-flex flex-row mx-auto">
-                            <div class="available__color1 color" value="red"></div>
-                            <div class="available__color2 color" value="green"></div>
-                            <div class="available__color3 color" value="greenyellow"></div>
-                            <div class="available__color4 color" value="blueviolet"></div>
+                            {% for clr in color_objs %}
+                                <div class="available__color color" value="{{clr}}" style="background-color: {{clr}};"></div>
+                            {% endfor %}
                         </div>
                     </div>
 
@@ -230,7 +227,7 @@
                             
                         </div>
                     </div>
-                    <button type="submit" data-price="900.00" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
+                    <button type="submit" data-price="{{product.price | floatformat:2 }}" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
                 </div>
             </div>
 

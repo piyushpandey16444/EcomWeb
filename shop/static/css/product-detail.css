@@ -158,37 +158,9 @@
         transition: 0.1s;
     }
     /*custom check boxes*/
-    .available__color1 {
+    .available__color {
         height: 25px;
         width: 25px;
-        background-color: red;
-        border: 1px solid black;
-        border-radius: 25px;
-        margin-left: 6px;
-        margin-right: 6px;
-    }
-    .available__color2 {
-        height: 25px;
-        width: 25px;
-        background-color: green;
-        border: 1px solid black;
-        border-radius: 25px;
-        margin-left: 6px;
-        margin-right: 6px;
-    }
-    .available__color3 {
-        height: 25px;
-        width: 25px;
-        background-color: greenyellow;
-        border: 1px solid black;
-        border-radius: 25px;
-        margin-left: 6px;
-        margin-right: 6px;
-    }
-    .available__color4 {
-        height: 25px;
-        width: 25px;
-        background-color: blueviolet;
         border: 1px solid black;
         border-radius: 25px;
         margin-left: 6px;

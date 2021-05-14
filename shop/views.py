@@ -12,7 +12,7 @@ from django.urls import reverse
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .forms import UserAdminCreationForm, AuthenticateForm
-from .models import CustomUser, Product
+from .models import CustomUser, Product, Size, Color
 from .utils import token_generator
 from django.views.decorators.csrf import csrf_exempt
 
@@ -32,9 +32,13 @@ def home_view(request):
 
 
 def product_view(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+    product = get_object_or_404(Product, slug=slug)  # object
+    size_objs = product.size_ids.all()  # many2many related to obj
+    color_objs = product.color_ids.all()  # many2many related to obj
     context = {
         "product": product,
+        "size_objs": size_objs,
+        "color_objs": color_objs,
     }
     return render(request, 'shop/product-detail.html', context=context)
 
