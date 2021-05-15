@@ -20,13 +20,14 @@
         <div class="row w-100 no-gutters justify-content-between">
             <div class="col-md-7">
                 <table class="table table-hover table-bordered table-sm">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
                             <th>Image</th>
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Total Price</th>
+                            <th>Delete Item</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,8 +39,8 @@
                                     <a href="{% url 'product' item.product_id.slug %}"><span class="product__name">{{item.product_id}}</span></a><br>
                                     <span class="item__details">Size : {{ item.size_id }}</span><br>
                                     <div class="row w-100 no-gutters">
-                                        <div class="col-md-3 no-gutters item__details" style="">Color : </div>
-                                        <div class="item__clr no-gutters" style="background-color: {{item.color_id}};" value="{{item.color_id}}"></div>
+                                        <div class="col-md-3 no-gutters item__details" style="">Color: </div>
+                                        <div class="item__clr no-gutters" style="background-color: {{item.color_id}}; margin-left:5px;" value="{{item.color_id}}"></div>
                                     </div>
                                 </td>
                                 
@@ -67,12 +68,21 @@
                                         <span id="amountof-{{item.id}}">₹ {{item.total_price | floatformat:2 }}</span>
                                     </div>
                                 </td>
-                            
+                                <td><span value="{{item.id}}" class="btn text-center btn-outline-danger btn-sm delete__btn">Remove</span></td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+
+                <hr class="hr__total">
+
+                <div class="row no-gutters w-100">
+                    <div class="col-md-6 no-gutters product__name">
+                        Total Cart Items : {{total_cart_items}}
+                    </div>
+                </div>
             </div>
+            
             <div class="col-md-4 border border-danger">
                 btn
             </div>

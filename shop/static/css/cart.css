@@ -82,3 +82,14 @@ table a {
     cursor: pointer;
     color: black !important;
 }
+
+.hr__total {
+    display: block;
+    border: none;
+    color: rgb(107, 99, 99);
+    height: 2px;
+    background: rgb(73, 71, 71);
+    background: -webkit-gradient( radial, 50% 50%, 0, 50% 50%, 500, from(rgb(150, 147, 147)), to(#fff));
+    margin-bottom: 6px;
+    margin-top: 0px;
+}

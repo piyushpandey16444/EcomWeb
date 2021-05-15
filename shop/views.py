@@ -167,10 +167,21 @@ def logout_view(request):
     return redirect('login')
 
 
+@csrf_exempt
+def delete_cart(request):
+    if request.method == "DELETE":
+        json_data = request.body
+        py_dict = json.loads(json_data.decode())
+        UserCart.objects.filter(id=py_dict['req_id']).delete()
+        return JsonResponse(data={'response': 'deleted'}, safe=True)
+
+
 def cart_view(request):
     cart_items = get_list_or_404(UserCart, user_id=request.user)
+    total_cart_items = len(cart_items)
     context = {
         "cart_items": cart_items,
+        "total_cart_items": total_cart_items,
     }
     return render(request, 'shop/cart.html', context=context)
 

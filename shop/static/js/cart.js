@@ -1,4 +1,24 @@
 $(document).ready(function() {
+    // delete btn
+    const getDeleteBtn = $(".delete__btn");
+    getDeleteBtn.click(function(e) {
+        e.preventDefault();
+        const itemToDelete = $(this).attr("value");
+        const idToDelete = {
+            req_id: itemToDelete,
+        };
+        $.ajax({
+            type: "DELETE",
+            url: "/delete-item/",
+            data: JSON.stringify(idToDelete),
+            dataType: "json",
+            success: function(response) {
+                console.log("item_deleted ! ", response);
+                location.reload();
+            },
+        });
+    });
+
     $(".up__icon").click(function(e) {
         e.preventDefault();
 
