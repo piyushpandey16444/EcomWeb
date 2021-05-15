@@ -1,22 +1,32 @@
 $(document).ready(function() {
     $(".up__icon").click(function(e) {
         e.preventDefault();
-        const getQty = $(this).attr("value");
-        const n = $("#item-`getQty`");
-        console.log(n);
 
-        const cartData = {
-            item_id: getQty,
-        };
-        $.ajax({
-            type: "POST",
-            url: "/update-qty/",
-            data: JSON.stringify(cartData),
-            dataType: "dataType",
-            success: function(response) {
-                const n = $("#item-`getQty`");
-                console.log(n);
-            },
-        });
+        // update qty
+        output = "";
+        priceData = "";
+        const itemId = $(this).attr("value");
+        const updateField = $("#item-" + itemId);
+        const mainField = $("#main-" + itemId);
+        const qtyOld = updateField.attr("value");
+        const qtyNew = parseInt(qtyOld) + 1;
+
+        output +=
+            "<span id='item-" +
+            itemId +
+            "' class='item__qty' value='" +
+            qtyNew +
+            "'>" +
+            qtyNew +
+            "</span>";
+        mainField.html(output);
+
+        // update total price
+        const totalPrice = $(".total__amount-" + itemId);
+        const getPrice = $("#priceof-" + itemId).attr("value");
+        const newTotalPrice = parseFloat(qtyNew * getPrice).toFixed(2);
+        priceData +=
+            "<span id='amountof-" + itemId + "'>" + "₹ " + newTotalPrice + "</span>";
+        totalPrice.html(priceData);
     });
 });

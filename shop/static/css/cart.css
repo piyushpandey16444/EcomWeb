@@ -64,9 +64,21 @@ table a {
 .up__icon {
     height: auto !important;
     cursor: pointer;
+    color: rgb(68, 68, 68) !important;
+}
+
+.up__icon:hover {
+    cursor: pointer;
+    color: black !important;
 }
 
 .down__icon {
     height: auto !important;
     cursor: pointer;
+    color: rgb(68, 68, 68) !important;
+}
+
+.down__icon:hover {
+    cursor: pointer;
+    color: black !important;
 }
