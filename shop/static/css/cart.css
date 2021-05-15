@@ -16,3 +16,57 @@
 .row__wrapper {
     width: 85%;
 }
+
+.item__details {
+    font-size: 14px;
+}
+
+.item__clr {
+    height: 20px;
+    width: 20px;
+    border-radius: 14px;
+}
+
+.product__name {
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.hr__row {
+    display: block;
+    border: none;
+    color: rgb(107, 99, 99);
+    height: 2px;
+    background: rgb(73, 71, 71);
+    background: -webkit-gradient( radial, 50% 50%, 0, 50% 50%, 940, from(rgb(150, 147, 147)), to(#fff));
+}
+
+table td {
+    vertical-align: middle !important;
+}
+
+table a {
+    text-decoration: none !important;
+}
+
+.qty__div {
+    height: 69px;
+    position: relative;
+}
+
+.icon__wrapper {
+    position: relative;
+}
+
+.up__icon {
+    height: auto !important;
+    cursor: pointer;
+}
+
+.down__icon {
+    height: auto !important;
+    cursor: pointer;
+}

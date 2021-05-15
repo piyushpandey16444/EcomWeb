@@ -121,6 +121,11 @@
     font-weight: 650;
 }
 
+a {
+    text-decoration: none !important;
+    color: black;
+}
+
 .gradient__hr {
     display: block;
     border: none;

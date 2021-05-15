@@ -18,8 +18,52 @@
 
     <div class="row__wrapper mx-auto">
         <div class="row w-100 no-gutters justify-content-between">
-            <div class="col-md-7  border border-info">
-                bysdfakj
+            <div class="col-md-7">
+                <table class="table table-hover table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                            <tr>
+                                <td>{{item.image}}</td>
+                                
+                                <td>
+                                    <a href="{% url 'product' item.product_id.slug %}"><span class="product__name">{{item.product_id}}</span></a><br>
+                                    <span class="item__details">Size : {{ item.size_id }}</span><br>
+                                    <div class="row w-100 no-gutters">
+                                        <div class="col-md-3 no-gutters item__details" style="">Color : </div>
+                                        <div class="item__clr no-gutters" style="background-color: {{item.color_id}};" value="{{item.color_id}}"></div>
+                                    </div>
+                                </td>
+                                
+                                <td>
+                                    <div class="row w-100 qty__div align-items-center no-gutters justify-content-between text-center">
+                                        
+                                        <div class="col-md-2 no-gutters">
+                                            <span id="item-{{item.id}}" class="to_replace item__qty" value="{{item.quantity}}">{{item.quantity}}</span>
+                                        </div>
+
+                                        <div class="col-md-8 h-100 icon__wrapper d-flex flex-column">
+                                            <i class="fas fa-2x fa-caret-up up__icon" value="{{item.id}}"></i>
+                                            <i class="fas fa-2x fa-caret-down down__icon" value="{{item.id}}"></i>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>₹ {{item.product_id.price | floatformat:2 }}</td>
+                                <td>₹ {{item.total_price | floatformat:2 }}</td>
+                            
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
             <div class="col-md-4 border border-danger">
                 btn
