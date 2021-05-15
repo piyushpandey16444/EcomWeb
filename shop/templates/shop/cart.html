@@ -1,0 +1,31 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}Cart{% endblock title %}
+
+{% block content %}
+    
+    <!-- breadcrumb div -->
+    <div class="container my-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="url__bd"><span class="breadcrumb-item">Home</span></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span class="breadcrumb-item">My Cart</span></a></li></li>
+        </ol>
+    </div>
+    <!-- breadcrumb div ends here-->
+
+    <hr class="cart__hr">
+
+
+    <div class="row__wrapper mx-auto">
+        <div class="row w-100 no-gutters justify-content-between">
+            <div class="col-md-7  border border-info">
+                bysdfakj
+            </div>
+            <div class="col-md-4 border border-danger">
+                btn
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

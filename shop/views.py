@@ -168,9 +168,11 @@ def logout_view(request):
 
 
 def cart_view(request):
-    return JsonResponse({
-        "response": "This is cart view !"
-    })
+    cart_items = get_list_or_404(UserCart, user_id=request.user)
+    context = {
+        "cart_items": cart_items,
+    }
+    return render(request, 'shop/cart.html', context=context)
 
 
 @csrf_exempt
