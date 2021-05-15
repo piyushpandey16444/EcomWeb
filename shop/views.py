@@ -186,11 +186,11 @@ def add_to_cart(request):
         quantity = cart_obj.quantity
         if created:
             cart_obj.quantity = quantity
-            cart_obj.total_price = cart_obj.quantity * format(product_id.price, '.2f')
+            cart_obj.total_price = product_id.price * cart_obj.quantity
             cart_obj.save()
             return JsonResponse({"response": "Item Added to cart !"})
         else:
             cart_obj.quantity += 1
-            cart_obj.total_price = cart_obj.quantity * format(product_id.price, '.2f')
+            cart_obj.total_price = product_id.price * cart_obj.quantity
             cart_obj.save()
             return JsonResponse({"response": "Item qty incremented !"})
