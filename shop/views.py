@@ -190,7 +190,6 @@ def cart_view(request):
 
 
 @csrf_exempt
-# @login_required
 def add_to_cart(request):
     if request.method == "POST" and request.is_ajax():
         json_data = request.body
