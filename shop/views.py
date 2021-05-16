@@ -15,6 +15,7 @@ from .forms import UserAdminCreationForm, AuthenticateForm
 from .models import CustomUser, Product, UserCart, Size, Color
 from .utils import token_generator
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 
 class EmailThread(threading.Thread):
@@ -168,6 +169,7 @@ def logout_view(request):
 
 
 @csrf_exempt
+@login_required
 def delete_cart(request):
     if request.method == "DELETE":
         json_data = request.body
@@ -176,6 +178,7 @@ def delete_cart(request):
         return JsonResponse(data={'response': 'deleted'}, safe=True)
 
 
+@login_required
 def cart_view(request):
     cart_items = get_list_or_404(UserCart, user_id=request.user)
     total_cart_items = len(cart_items)
@@ -187,6 +190,7 @@ def cart_view(request):
 
 
 @csrf_exempt
+@login_required
 def add_to_cart(request):
     if request.method == "POST" and request.is_ajax():
         json_data = request.body

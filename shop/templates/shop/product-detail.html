@@ -136,23 +136,6 @@
         <!-- one row and three columns -->
         <div class="row justify-content-between no-gutters">
 
-            {% comment %} <i class="upper__arrow far fa-2x fa-arrow-alt-circle-up"></i> {% endcomment %}
-            <!-- thumbnail images-->
-            {% comment %} <div class="col-md-1 ">
-                <div class="slider__wrapper w-100 no-gutters">
-                    <div class="slider my-2 d-flex mx-auto flex-column">
-                        <img class="my-1 thumbnail active" src="{% static 'images/2.jpg' %}" alt="">
-                        <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-                        <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-                        <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
-                        <img class="my-1 thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-                        <img class="my-1 thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-                        <img class="my-1 thumbnail" src="{% static 'images/5.jpg' %}" alt="">
-                    </div>
-                </div>
-            </div> {% endcomment %}
-            {% comment %} <i class="lower__arrow far fa-2x fa-arrow-alt-circle-down"></i> {% endcomment %}
-
             <!-- main img-->
             <div class="col-md-4 ml-0 no-gutters">
                 <img class="product__img w-100" src="{{product.productimage.url}}" alt="{{product.product_name}}">
@@ -229,7 +212,13 @@
                             
                         </div>
                     </div>
-                    <button type="submit" data-product="{{product.id}}" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
+                    
+                    {% if request.user.is_authenticated %}
+                        <button type="submit" data-product="{{product.id}}" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
+                    {% else %}
+                        <h4>Login to Add item to cart</h4>
+                    {% endif %}
+                    
                 </div>
             </div>
 
