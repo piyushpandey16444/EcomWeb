@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    // setTimeout(function() {
+    //     location.reload();
+    // }, 6000);
+
     $(".thumbnail").hover(function(e) {
         e.preventDefault();
         const self = this;
@@ -81,10 +85,21 @@ $(document).ready(function() {
             dataType: "json",
             success: function(response) {
                 console.log("response is: ", response.response);
-                output = "";
-                const divToReplace = $(".to_replace");
-                output += response.response;
-                divToReplace.html(output);
+                if (response.response == "NOK") {
+                    output = "";
+                    const divToReplace = $(".to_replace");
+                    output +=
+                        "<h4 class='alert alert-danger w-75 no-gutters'>Please provide both size and color!</h4>";
+                    divToReplace.html(output);
+                } else {
+                    output = "";
+                    const divToReplace = $(".to_replace");
+                    output +=
+                        "<h4 class='alert alert-danger w-75 no-gutters'>" +
+                        response.response +
+                        "</h4>";
+                    divToReplace.html(output);
+                }
             },
         });
     });

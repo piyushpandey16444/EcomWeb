@@ -207,12 +207,12 @@
 
                     <hr class="gradient__hrr my-3">
 
-                    <div class="replace">
+                    <div class="replace" style="height: 50px;">
                         <div class="to_replace w-100 no-gutters">
                             
                         </div>
                     </div>
-                    
+
                     {% if request.user.is_authenticated %}
                         <button type="submit" data-product="{{product.id}}" data-size="" data-color="" class="cart__btn btn btn-primary btn-sm">Add to Cart</button>
                     {% else %}

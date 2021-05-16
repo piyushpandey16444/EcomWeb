@@ -6,7 +6,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.http import JsonResponse, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseRedirect, response
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.urls import reverse
 from django.utils.encoding import force_bytes, force_text
@@ -190,14 +190,20 @@ def cart_view(request):
 
 
 @csrf_exempt
-@login_required
+# @login_required
 def add_to_cart(request):
     if request.method == "POST" and request.is_ajax():
         json_data = request.body
         py_dict = json.loads(json_data.decode())
-        product_id = get_object_or_404(Product, id=py_dict.get('product'))
-        size_id = get_object_or_404(Size, size=py_dict.get('size'))
-        color_id = get_object_or_404(Color, color=py_dict.get('color'))
+        product = py_dict.get('product')
+        size = py_dict.get('size')
+        color = py_dict.get('color')
+        if not size or not color:
+            return JsonResponse({"response": "NOK"})
+
+        product_id = get_object_or_404(Product, id=product)
+        size_id = get_object_or_404(Size, size=size)
+        color_id = get_object_or_404(Color, color=color)
         cart_obj, created = UserCart.objects.get_or_create(user_id=request.user, product_id=product_id, size_id=size_id,
                                                            color_id=color_id)
         quantity = cart_obj.quantity
