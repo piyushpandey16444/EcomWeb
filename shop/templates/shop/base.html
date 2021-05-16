@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--font awesome, Owl Carousel css and bootstrap-->
-    <link rel="stylesheet" href="{% static 'css/all.css' %}">
-    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
     <!-- custom files import -->
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
-  
+
     <title>WebShop | {% block title %}{% endblock title %}</title>
   </head>
 
@@ -24,12 +24,35 @@
     {% include 'shop/navbar.html' %} {% block content %} {% endblock content %}
 
     <!-- footer -->
-    <div class="card text-center mt-5">
-      <div class="card-footer text-muted">
-        Footer Div
-      </div>
-    </div>
+    <div class="footer1 card text-center mt-5">
+      <div class="footer__wrapper no-gutters w-100 d-flex">
+        <div class="footer-item d-flex w-100 h-100 align-items-center">
+          <div class="footer__item__text mx-auto">
+            <i class="fas fa-shipping-fast mr-2"></i> Shipping & Handling
+          </div>
+        </div>
 
+        <div class="footer-item d-flex w-100 h-100 align-items-center">
+          <div class="footer__item__text mx-auto">
+            <i class="fas fa-sticky-note mr-2"></i> privacy Policy
+          </div>
+        </div>
+
+        <div class="footer-item d-flex w-100 h-100 align-items-center">
+          <div class="footer__item__text mx-auto">
+            <i class="fas fa-exclamation-triangle mr-2"></i> Terms & Conditions
+          </div>
+        </div>
+
+        <div class="footer-item d-flex w-100 h-100 align-items-center">
+          <div class="footer__item__text mx-auto">
+            <i class="far fa-question-circle mr-2"></i> FAQ's
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__container w-100 no-gutters border border-info"></div>
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'js/jquery.js' %}"></script>
