@@ -146,7 +146,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
 MEDIA_URL = "/images/"
 MEDIA_ROOT = BASE_DIR
 AUTH_USER_MODEL = 'shop.CustomUser'
